@@ -8,8 +8,8 @@ export default class Footer extends React.Component {
                 <button id='home'><a href='./home'><i className="fas fa-home">home</i></a></button>
                 <label htmlFor='timer'></label>
                 <button id='timer'><a href='./timer'><i className="fas fa-stopwatch">timer</i></a></button>
-                <label htmlFor='options'></label>
-                <button id='options'><a href='./options'><i className="fas fa-stream">options</i></a></button>
+                <label htmlFor='tools'></label>
+                <button id='tools'><a href='./tools'><i className="fas fa-stream">tools</i></a></button>
             </div>
         );
     }

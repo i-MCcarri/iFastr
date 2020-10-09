@@ -13,7 +13,7 @@ export default class LogIn extends React.Component {
                     <fieldset>
                         <label for='password'>Password: </label>
                         <div>
-                            <input type='password' class='password ' id='password' required/>`
+                            <input type='password' class='password ' id='password' required/>
                         </div>
                     </fieldset>
                     <div>
