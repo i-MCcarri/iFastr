@@ -15,6 +15,7 @@ import Review from './components/userInfo/Review';
 import Sustenance from './components/userInfo/Sustenance';
 import Support from './components/userInfo/Support';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import './App.css';
 
 function App() {
   return (

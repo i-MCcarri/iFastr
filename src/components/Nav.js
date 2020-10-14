@@ -8,7 +8,7 @@ class Nav extends React.Component {
                 <label htmlFor='back'></label>
                 <button id='back' onClick={ () => this.props.history.goBack() }>Back</button>
                 <label htmlFor='logOut'></label>
-                <button id='logOut' ><a href='./'>Log-Out</a></button>
+                <button id='logOut' ><a href='/'>Log-Out</a></button>
             </div>
         );
     }

@@ -69,25 +69,21 @@ class TimerClass extends React.Component {
     console.log("Timer!!");
   };
 
+
   render() {
+    let userSelectedMethod = 16;
     return (
         <div>
-            <Nav />
-            <div id='timerWrapper'>
-            <div id='componentWrapper'>
-            <Nav />
+            <Nav /><br/>
             <div className="timerwrap">
             <br />
             <AnalogClock {...this.state.options} />
             <br />
-            <div
-                className="digital"
-                style={{ fontFamily: "Consolas, monospace" }}
-            >
+                <div className="digital" style={{ fontFamily: "Consolas, monospace" }}>
                 <Timer
                 // initialTime={60 * 1000}
                 initialTime={moment
-                    .duration(this.context.hours, "hours") //this.context.hours here is the timer starting point
+                    .duration(userSelectedMethod, "hours") //this.context.hours here is the timer starting point
                     .asMilliseconds()}
                 direction="backward"
                 timeToUpdate={1000}
@@ -99,11 +95,9 @@ class TimerClass extends React.Component {
                 ]}
                 >
                 <Timer.Hours />:<Timer.Minutes />:<Timer.Seconds />{" "}
-                
+        
                 </Timer>
-            </div>
-            </div>
-        </div>
+                </div>
             </div>
             <div id='btns'>
                 <button id='start'>Start</button>

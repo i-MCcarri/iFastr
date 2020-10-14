@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from './Nav';
+import '../App.css';
 
 export default class Tools extends React.Component {
     static defaultProps = {
@@ -10,13 +11,13 @@ export default class Tools extends React.Component {
 
     render() {
         return (
-            <div id='options'>
+            <div id='tools'>
                 <Nav />
                 <div>
                     <ul id='userViews'>
                         <div>
-                            <h3>User Info</h3>
-                        </div><p>tools for success:</p>
+                            <h3 id='pgHeading'>Toolkit</h3>
+                        </div><p id='subText'>for success</p>
                         <li><label htmlFor='profile'></label>
                 <button id='profile'><a href='./tools/profile'>Profile</a></button></li>
                         <li><label htmlFor='accountable'></label>
@@ -26,13 +27,13 @@ export default class Tools extends React.Component {
                         <li><label htmlFor='methods'></label>
                 <button id='methods'><a href='./tools/methods'>Method</a></button></li>
                         <li><label htmlFor='nutrients'></label>
-                <button id='nutrients'><a href='./tools/Nntrients'>Nutrients</a></button></li>
+                <button id='nutrients'><a href='./tools/Nutrients'>Nutrients</a></button></li>
                         <li><label htmlFor='sustenance'></label>
                 <button id='sustenance'><a href='./tools/sustenance'>Sustenance</a></button></li>
                         <li><label htmlFor='review'></label>
                 <button id='review'><a href='./tools/review'>Review</a></button></li>
                         <li><label htmlFor='support'></label>
-                <button id='support'><a href='./tools/support'>Supoprt</a></button></li>
+                <button id='support'><a href='./tools/support'>Support</a></button></li>
                     </ul>
                 </div>
             </div>

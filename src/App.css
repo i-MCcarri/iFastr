@@ -1,31 +1,90 @@
-.App {
+body {
+  margin-bottom: 112px;
+}
+
+#header, #footer, #splash, #profile, #navBtnWrapper, #tools, #btns {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#header {
+  background: linear-gradient( #FFFFFF 1%, #51A3A3 10%, #FFFFFF 30%, #FFFFFF 70%, #51A3A3 90%, #FFFFFF 99%);
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-width: 3px;
+  border-color: #D3D3D3;
+}
+
+fieldset {
+  border: none;
+}
+
+#btns {
+  margin-top: 20px;
+  display: block;
+}
+
+#footer {
+  display: block;
+  background: #000000;
+  padding-top: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 88px;
+  width: 100%;
+}
+
+a {
+  color:#000000;
+  text-decoration: none;
+}
+
+li button {
+  box-shadow:inset 0px 1px 33px -7px #bbdaf7;
+  background:linear-gradient(to bottom, #FFFFFF 5%, #f79fff 100%);
+  background-color:##f79fff;
+  border-radius:7px;
+  border:0px solid #000000;
+  display:inline-block;
+  cursor:pointer;
+  color:#000000;
+  font-family:Verdana;
+  font-size:15px;
+  font-weight:bold;
+  padding:8px 3px;
+  width: 80%;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #528ecc;
+}
+
+input, select {
+  width: 80%;
+}
+
+ul {
+  list-style: none;
+  margin-left: -40px;
+}
+
+li {
+  padding: 20px 0px;
+}
+
+li button:hover {
+  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+  background-color:#378de5;
+}
+li button:active {
+  position:relative;
+  top:1px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {

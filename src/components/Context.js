@@ -15,6 +15,8 @@ export class TimerProvider extends React.Component {
     });
   };
 
+  //set up method for post and fetch request for user form data
+
   render() {
     return (
       <TimerContext.Provider

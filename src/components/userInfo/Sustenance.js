@@ -34,8 +34,8 @@ export default class Sustenance extends React.Component {
                                 </label></li>                                
                             </ul>
                             <ul id='liquids'> Water Intake
-                                <li><label htmlFor='protein'>Protein:</label>
-                                <input type='text' id='protein'/></li>
+                                <li><label htmlFor='ozLiquids'>H2O:</label>
+                                <input type='number' id='ozLiquids'/></li>
                             </ul>
                             <li><button id='favMeal'>+ Favorites</button></li>                            
                             <li><button id='editUserInfo'>Edit</button></li>

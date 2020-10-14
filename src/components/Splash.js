@@ -1,6 +1,7 @@
 import React from 'react';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
+import '../App.css';
 
 export default class Splash extends React.Component {
     state = {
@@ -25,7 +26,7 @@ export default class Splash extends React.Component {
 
     render() {
         return (
-        <div>
+        <div id='splash'>
             <div>
                 <label htmlFor='signUp'></label>
                 <button id='signUp' onClick={this.setSignUp} >Sign-Up</button>

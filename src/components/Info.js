@@ -10,15 +10,15 @@ export default class Info extends React.Component {
 
     render() {
         return (
-<div>
-    <Nav />
+    <div>
+        <Nav />
     <div>
         <h2>Intermittent Fasting</h2>
         <span>Key Points</span>
     </div>
     <div>
         <ul class='table-of-contents'>
-            <li>Intro</li>
+            <li>Introduction</li>
             <li>Safety & Side Effect</li>
             <li>Methods</li>
             <li>How it Affect the Body</li>
@@ -36,6 +36,42 @@ export default class Info extends React.Component {
             <li>Macro & Micro Nutrients</li>
             <li>Regular Exercise</li>
         </ul>
+        <div id='info'>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+            <h4>Introduction</h4>
+            <p id='intro'></p>
+        </div>
     </div>
 </div>
         );
