@@ -21,10 +21,10 @@ export default class SignUp extends React.Component {
                 </fieldset>
                 <fieldset><label for='confirm-password'>Confirm Password </label>
                     <div>
-                        <input type='passwrod' class='confirm-password ' id='confirm-password' required/>
+                        <input type='password' class='confirm-password ' id='confirm-password' required/>
                     </div>
                 </fieldset>
-                <div>
+                <div><br/>
                     <input type='button' class='signUpBtn' value='Sign Up' />
                 </div>
             </form>

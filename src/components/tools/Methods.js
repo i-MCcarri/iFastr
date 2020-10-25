@@ -8,6 +8,20 @@ export default class Methods extends React.Component {
         }
     }
 
+    componentDidMount() {
+        // Simple GET request using fetch
+        fetch('http://localhost:8000/ifastr/')
+            .then(response => response.json())
+            .then(data => this.setState({
+                //fasting_method table 
+                id: data.id,
+                method: data.method,
+                fasting: data.fasting,
+                feast: data.feast,
+             })
+        );
+    }
+
     render() {
         return (
             <div id='methods'>
@@ -17,7 +31,7 @@ export default class Methods extends React.Component {
                 </div>
                 <div>
                     <p>Select your ratio</p>
-                    <form>
+                    <form id='methodForm'>
                         <ul>
                             <li><label htmlFor='20:4' /><input type='radio' name='method' id='20:4' />20:4</li>
                             <li><label htmlFor='19:5' /><input type='radio' name='method' id='19:5' />19:5</li>

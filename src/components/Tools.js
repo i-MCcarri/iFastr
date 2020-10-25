@@ -13,8 +13,8 @@ export default class Tools extends React.Component {
         return (
             <div id='tools'>
                 <Nav />
-                <div>
-                    <ul id='userViews'>
+                <div id='userViews'>
+                    <ul>
                         <div>
                             <h3 id='pgHeading'>Toolkit</h3>
                         </div><p id='subText'>for success</p>

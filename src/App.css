@@ -2,6 +2,10 @@ body {
   margin-bottom: 112px;
 }
 
+div#info p {
+  text-indent: 20px;
+}
+
 #header, #footer, #splash, #profile, #navBtnWrapper, #tools, #btns {
   text-align: center;
 }
@@ -36,15 +40,46 @@ fieldset {
   width: 100%;
 }
 
-a {
+#footer button {
+  background-color: #000000;
+  cursor: pointer;
+  font-family:Verdana;
+  font-size:16px;
+  padding:8px 3px;
+  width: 33%;
+  text-decoration:none;
+}
+
+#footer button a {
+  color: #FFFFFF;
+  text-decoration:none;
+}
+
+#IFInfoPg ul li a {
   color:#000000;
   text-decoration: none;
 }
 
-li button {
+#IFInfoPg {
+  width: 90%;
+  text-align: left;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#IFInfoPg ul li {
+  list-style: none;
+}
+
+#methodForm ul {
+  list-style: none;
+  margin-left: -40px;
+}
+
+h4, #userViews ul li button {
   box-shadow:inset 0px 1px 33px -7px #bbdaf7;
   background:linear-gradient(to bottom, #FFFFFF 5%, #f79fff 100%);
-  background-color:##f79fff;
+  background-color:#f79fff;
   border-radius:7px;
   border:0px solid #000000;
   display:inline-block;
@@ -59,24 +94,30 @@ li button {
   text-shadow:0px 1px 0px #528ecc;
 }
 
+h4 {
+text-align: center;
+margin-left: 10%;
+}
+
 input, select {
   width: 80%;
 }
 
-ul {
+#userViews ul {
   list-style: none;
   margin-left: -40px;
 }
 
-li {
+#userViews ul li {
   padding: 20px 0px;
 }
 
-li button:hover {
+#userViews ul li button:hover {
   background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
   background-color:#378de5;
 }
-li button:active {
+
+#userViews ul li button:active {
   position:relative;
   top:1px;
 }

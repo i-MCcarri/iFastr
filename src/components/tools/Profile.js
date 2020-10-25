@@ -13,9 +13,32 @@ export default class Profile extends React.Component {
             email: '',
             cell: '',
             method: '',
-            fastStart: '',
+            start: '',
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        // Simple GET request using fetch
+        fetch('http://localhost:8000/ifastr/')
+            .then(response => response.json())
+            .then(data => this.setState({
+                //users table 
+                id: data.user_id,
+                first_name: data.firstname,
+                last_name: data.lastname,
+                username: data.username,
+                email: data.email,
+                cell: data.cell,
+                pass: data.pass,
+                verified_status: data.verified_status,
+                join_date: data.join_date,
+                //fasting_methods table
+                method: data.method,
+                ////fasting_tracker table
+                fasting_start: data.fasting_start,
+            })
+        );
     }
 
     handleSubmit(event) {
@@ -28,6 +51,7 @@ export default class Profile extends React.Component {
                 email: event.target.email.value,
                 cell: event.target.cell.value,
                 method: event.target.method.value,
+                start: event.target.method.value,
                 }
             )
 
@@ -53,11 +77,9 @@ export default class Profile extends React.Component {
                         <input type="tel" id="cell" pattern="([0-9]{3}) [0-9]{3}-[0-9]{4}" name='cell'/><br/>
                         <label htmlFor='method'>Fasting Method</label><br/>
                         <input type='number' id='method' name='method'/><br/>
-                        {/* <label htmlFor='switch' class="switch">Enable Push Notification
-                        <input type="checkbox" />
-                        <span id='switch' class="slider round"></span>
-                        </label> */}
-                        {/* <button id='editUserInfo'>Edit</button> */}<br/>
+                        <label htmlFor='start'>Fasting Start</label><br/>
+                        <input type='time' id='start' name='start'/><br/>
+                        <br/>
                         <button type='submit' id='saveUserInfo' onClick={ () => this.render() }>Save</button>
                     </form><br/>
                 </div>
