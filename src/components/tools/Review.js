@@ -2,7 +2,12 @@ import React from 'react';
 import Nav from '../Nav';
 
 export default class Review extends React.Component {
-
+    static defaultProps = {
+        history: {
+          goBack: () => { }
+        }
+    }
+    
     componentDidMount() {
         // Simple GET request using fetch for completed = true only
         fetch('http://localhost:8000/ifastr/')

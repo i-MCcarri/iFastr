@@ -8,21 +8,68 @@ export default class Methods extends React.Component {
         }
     }
 
-    componentDidMount() {
+    constructor(props) {
+        super(props);
+        this.state = {
+          fasting_methods: [{
+              id: '',
+              method: '',
+              fasting: '',
+              feasting: ''
+            }]
+        };
+    }
+
+    methodChanged(fasting_methods){
+        this.setState({
+            fasting_methods
+        });
+    }
+
+    componentDidMount(e) {
+        e.preventDefault();
+        const {id, method, fasting, feasting} = this.state;
+        const method = {id, method, fasting, feasting};
+        const url = 'http://localhost:8000/ifastr/';
+        const options = {
+            method: 'GET',
+            body: JSON.stringify(method),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
         // Simple GET request using fetch
-        fetch('http://localhost:8000/ifastr/')
+        fetch(url, options)
+            .then( response => {
+                if(!response.ok) {
+                    throw new Error('something went wrong, please try again later.')
+                }
+                return response;
+            })
             .then(response => response.json())
-            .then(data => this.setState({
-                //fasting_method table 
-                id: data.id,
-                method: data.method,
-                fasting: data.fasting,
-                feast: data.feast,
-             })
-        );
+            .then(data => {
+                const fasting_methods = Object.keys(data)
+                        .map(key => data[key].item[0]);
+                
+                this.setState({
+                    //fasting_methods
+                    fasting_methods,
+                    error: null
+                });
+            })
+            .catch(err => {
+                this.setState({
+                    error: err.message
+                });
+            });
     }
 
     render() {
+        const error = this.state.error
+          ? <div className="error">{this.state.error}</div>
+          : "";
+
         return (
             <div id='methods'>
                 <Nav />
@@ -31,7 +78,8 @@ export default class Methods extends React.Component {
                 </div>
                 <div>
                     <p>Select your ratio</p>
-                    <form id='methodForm'>
+                    {error}
+                    <form id='methodForm' onSubmit={e => this.componentDidMount(e)}>
                         <ul>
                             <li><label htmlFor='20:4' /><input type='radio' name='method' id='20:4' />20:4</li>
                             <li><label htmlFor='19:5' /><input type='radio' name='method' id='19:5' />19:5</li>
@@ -42,7 +90,7 @@ export default class Methods extends React.Component {
                             <li><label htmlFor='14:10' /><input type='radio' name='method' id='14:10' />14:10</li>
                         </ul>
                     </form>
-                    <button id='save'>Save</button>
+                    <button type='submit' id='save'>Save</button>
                 </div>
             </div>
         );

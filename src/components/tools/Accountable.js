@@ -2,6 +2,11 @@ import React from 'react';
 import Nav from '../Nav';
 
 export default class Accountable extends React.Component {
+    static defaultProps = {
+        history: {
+          goBack: () => { }
+        }
+    }
     
     componentDidMount() {
         // Simple GET request using fetch
