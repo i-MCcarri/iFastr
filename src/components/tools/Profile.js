@@ -1,61 +1,99 @@
 import React from 'react';
 import Nav from '../Nav';
-import './switch.css';
 import '../../App.css';
 
 export default class Profile extends React.Component {
+    static defaultProps = {
+        history: {
+          goBack: () => { }
+        }
+    }
+    
     constructor(props) {
         super(props);
         this.state = {
-            firstName: '',
-            lastName: '',
-            userName: '',
-            email: '',
-            cell: '',
-            method: '',
-            start: '',
-        }
+            users: [{
+                user_id: '',
+                firstname: '',
+                lastname: '',
+                username: '',
+                email: '',
+                cell: '',
+                verified_status: '',
+                join_date: '',
+                method: '',
+                fasting_start: ''
+            }]
+        };    
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
+        const { firstName, lastName, userName, email, cell, fastMethod, start } = this.state;
+        const user = { firstName, lastName, userName, email, cell, fastMethod, start };
+        const usersURL = 'http://localhost:8000/users/1';
+        const options = {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
         // Simple GET request using fetch
-        fetch('http://localhost:8000/ifastr/')
-            .then(response => response.json())
-            .then(data => this.setState({
-                //users table 
-                id: data.user_id,
-                first_name: data.firstname,
-                last_name: data.lastname,
-                username: data.username,
-                email: data.email,
-                cell: data.cell,
-                pass: data.pass,
-                verified_status: data.verified_status,
-                join_date: data.join_date,
-                //fasting_methods table
-                method: data.method,
-                ////fasting_tracker table
-                fasting_start: data.fasting_start,
+        fetch(usersURL, options)
+            .then(response => {
+                if(!response.ok) {
+                    throw new Error('something went wrong, please try again later.')
+                }
+                return response;
             })
-        );
+            .then(response => response.json())
+            .then(data => { 
+                console.log(data)
+                this.setState({
+                    //users table 
+                    users: data,
+                    error: null
+                });
+            })
+            .catch(err => {
+                this.setState({
+                    error: err.message
+                });
+            });
     }
 
     handleSubmit(event) {
         alert('Profile information has been updated');
         event.preventDefault();
-            this.setState(
-                {firstName: event.target.firstName.value,
-                lastName: event.target.lastName.value,
-                userName: event.target.userName.value,
+            this.setState({
+                firstname: event.target.firstName.value,
+                lastname: event.target.lastName.value,
+                username: event.target.username.value,
                 email: event.target.email.value,
                 cell: event.target.cell.value,
-                method: event.target.method.value,
-                start: event.target.method.value,
-                }
-            )
+                method: event.target.fastMethod.value,
+                fasting_start: event.target.start.value,
+            })
 
-        //post to ifastr datatbase, user table 
+            console.log('saving fasting start time...')
+        
+            const url = 'http://localhost:8000/users/fasting_start/1';
+            const options = {
+                method: 'PATCH',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({fasting_start: this.state.users.fasting_start})
+            };
+            fetch(url, options)
+                .then( response => {
+                    if(!response.ok) {
+                        throw new Error('something else went wrong, please try again later.')
+                    }
+                    response.json()
+                })
+                .then(json => console.log(json))
     }
 
     render() {
@@ -65,25 +103,25 @@ export default class Profile extends React.Component {
                 <div>
                     <h2>Profile</h2>
                     <form id='userProfile' onSubmit={this.handleSubmit}>
-                        <label htmlFor='firstName'>Firstname</label><br/>
-                        <input type='text' id='firstName' name='firstName'/><br/>
-                        <label htmlFor='lastName'>Lastname</label><br/>
-                        <input type='text' id='lastName' name='lastName'/><br/>
-                        <label htmlFor='userName'>Username</label><br/>
-                        <input type='text' id='userName' name='userName'/><br/>
-                        <label htmlFor='email'>E-mail</label><br/>
-                        <input type='text' id='email' name='email'/><br/>
-                        <label htmlFor='cell'>Cell Phone</label><br/>
-                        <input type="tel" id="cell" pattern="([0-9]{3}) [0-9]{3}-[0-9]{4}" name='cell'/><br/>
-                        <label htmlFor='method'>Fasting Method</label><br/>
-                        <input type='number' id='method' name='method'/><br/>
-                        <label htmlFor='start'>Fasting Start</label><br/>
-                        <input type='time' id='start' name='start'/><br/>
-                        <br/>
-                        <button type='submit' id='saveUserInfo' onClick={ () => this.render() }>Save</button>
-                    </form><br/>
+                        <label htmlFor='firstName'>Firstname</label><br />
+                        <input type='text' id='firstName' name='firstName' defaultValue={this.state.users.firstname}/><br />
+                        <label htmlFor='lastName'>Lastname</label><br />
+                        <input type='text' id='lastName' name='lastName' defaultValue={this.state.users.lastname}/><br />
+                        <label htmlFor='username'>Username</label><br />
+                        <input type='text' id='username' name='username' defaultValue={this.state.users.username}/><br />
+                        <label htmlFor='email'>E-mail</label><br />
+                        <input type='text' id='email' name='email' defaultValue={this.state.users.email}/><br />
+                        <label htmlFor='cell'>Cell Phone</label><br />
+                        <input type="tel" id="cell" pattern="\W[0-9]{3}\W[0-9]{3}-[0-9]{4}" maxLength={14} name='cell' defaultValue={this.state.users.cell}/><br />
+                        <label htmlFor='fastMethod'>Fasting Method</label><br />
+                        <input type='number' id='fastMethod' name='fastMethod' value={this.state.users.method}/><br />
+                        <label htmlFor='start'>Fasting Start</label><br />
+                        <input type='time' id='start' name='start' defaultValue={this.state.users.fasting_start}/><br />
+                        <br />
+                        <button type='submit' id='saveUserInfo' onClick={ () => this.render() } >Save</button>
+                    </form><br />
                 </div>
             </div> 
         );
-    }
+    };
 }

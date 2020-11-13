@@ -11,12 +11,12 @@ export default class Info extends React.Component {
 
     render() {
         return (
-    <div>
+    <div id='IFInfoWrapper'>
         <Nav />
     <div id='IFInfoPg'>
         <h2>Intermittent Fasting</h2>
         <span>Key Points</span>
-        <ul class='table-of-contents'>
+        <ul className='table-of-contents'>
             <li><a href='#intro'>Introduction</a></li>
             <li><a href='#safe'>Safety</a> & <a href='#sideeff'>Side Effect</a></li>
             <li><a href='#methods'>Methods</a></li>

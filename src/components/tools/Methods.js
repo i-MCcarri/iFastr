@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../Nav';
+import './Method.css';
 
 export default class Methods extends React.Component {
     static defaultProps = {
@@ -11,8 +12,9 @@ export default class Methods extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            currentlySelectedID: '',
           fasting_methods: [{
-              id: '',
+              method_id: '',
               method: '',
               fasting: '',
               feasting: ''
@@ -20,20 +22,12 @@ export default class Methods extends React.Component {
         };
     }
 
-    methodChanged(fasting_methods){
-        this.setState({
-            fasting_methods
-        });
-    }
-
-    componentDidMount(e) {
-        e.preventDefault();
-        const {id, method, fasting, feasting} = this.state;
-        const method = {id, method, fasting, feasting};
-        const url = 'http://localhost:8000/ifastr/';
+    componentDidMount() {
+        const { method_id, method_options, fasting_length, feasting_length } = this.state;
+        //const method = { method_id, method_options, fasting_length, feasting_length };
+        const url = 'http://wwww.localhost:8000/fasting_methods/';
         const options = {
             method: 'GET',
-            body: JSON.stringify(method),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -50,11 +44,11 @@ export default class Methods extends React.Component {
             .then(response => response.json())
             .then(data => {
                 const fasting_methods = Object.keys(data)
-                        .map(key => data[key].item[0]);
+                        .map(key => data[key].item);
                 
                 this.setState({
                     //fasting_methods
-                    fasting_methods,
+                    fasting_methods: data,
                     error: null
                 });
             })
@@ -64,8 +58,56 @@ export default class Methods extends React.Component {
                 });
             });
     }
+    
+    test = (e) => {
+        this.setState({currentlySelectedID: e.target.id})
+        console.log(e.target.id);
+    }
+
+    saveMethod = (e) => {
+        e.preventDefault();
+        console.log('patching method id...')
+        
+        const url = 'http://localhost:8000/users/method/1';
+        const options = {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({method: this.state.currentlySelectedID})
+        };
+        fetch(url, options)
+            .then( response => {
+                if(!response.ok) {
+                    throw new Error('something else went wrong, please try again later.')
+                }
+            })
+    }
 
     render() {
+
+        //console.log(this.state.currentlySelectedID)
+        const fasting_list = this.state.fasting_methods.map(method => 
+            <li key={method}>
+                <div className='itemBorder'>
+                    <div className="methods__item">
+                        <label 
+                            htmlFor={method.method_id} 
+                            className="methods__label">
+                                {method.method_options}
+                        </label>
+                        <input 
+                            type='radio' 
+                            onChange={this.test} 
+                            name='method'
+                            className="methods__option" 
+                            id={method.method_id} 
+                            value={method.method_options} 
+                        />        
+                    </div>
+                </div>
+            </li>)
+        console.log(this.state.fasting_methods);
         const error = this.state.error
           ? <div className="error">{this.state.error}</div>
           : "";
@@ -76,21 +118,18 @@ export default class Methods extends React.Component {
                 <div>
                     <h3>It's Your Choice</h3>
                 </div>
-                <div>
-                    <p>Select your ratio</p>
-                    {error}
+                <div id='selectMethod'>
+                    <p className='pdesc'>Select your ratio</p>
+                        {error}
                     <form id='methodForm' onSubmit={e => this.componentDidMount(e)}>
-                        <ul>
-                            <li><label htmlFor='20:4' /><input type='radio' name='method' id='20:4' />20:4</li>
-                            <li><label htmlFor='19:5' /><input type='radio' name='method' id='19:5' />19:5</li>
-                            <li><label htmlFor='18:6' /><input type='radio' name='method' id='18:6' />18:6</li>
-                            <li><label htmlFor='17:7' /><input type='radio' name='method' id='17:7' />17:7</li>
-                            <li><label htmlFor='16:8' /><input type='radio' name='method' id='16:8' />16:8</li>
-                            <li><label htmlFor='15:9' /><input type='radio' name='method' id='15:9' />15:9</li>
-                            <li><label htmlFor='14:10' /><input type='radio' name='method' id='14:10' />14:10</li>
+                        <ul className='methodsList'>
+                            <fieldset className="methods">
+                                <legend className="methods__name"/>
+                                {fasting_list}
+                            </fieldset>
                         </ul>
                     </form>
-                    <button type='submit' id='save'>Save</button>
+                    <button type='submit' id='save' onClick={this.saveMethod}><strong>Save</strong></button>
                 </div>
             </div>
         );

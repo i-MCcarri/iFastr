@@ -6,27 +6,160 @@ div#info p {
   text-indent: 20px;
 }
 
-#header, #footer, #splash, #profile, #navBtnWrapper, #tools, #btns {
+div#info h4 {
+  margin-left: 10%;
+}
+
+#header, #footer, #splash, #profile,
+ #navBtnWrapper, #tools, #btns, 
+ #methods, div#timerBtns {
   text-align: center;
 }
 
 #header {
-  background: linear-gradient( #FFFFFF 1%, #51A3A3 10%, #FFFFFF 30%, #FFFFFF 70%, #51A3A3 90%, #FFFFFF 99%);
-  margin-top: 16px;
+  box-shadow:inset 0px 1px 21px 0px #75485E;
+  background: #FFFFFF;
+  margin-top: 1px;
   margin-bottom: 16px;
   padding-top: 10px;
   padding-bottom: 10px;
   border-width: 3px;
-  border-color: #D3D3D3;
+  border-color: #51A3A3;
+}
+
+div#tools div#navBtnWrapper, 
+div#IFInfoWrapper div#navBtnWrapper, 
+div#timerWrapper div#navBtnWrapper,
+div#profile div#navBtnWrapper,
+div#accountable div#navBtnWrapper,
+div#exertion div#navBtnWrapper,
+div#methods div#navBtnWrapper,
+div#nutrients div#navBtnWrapper,
+div.sustenance div#navBtnWrapper,
+div#review div#navBtnWrapper,
+div#support div#navBtnWrapper {
+  margin-left: 10%;
+}
+
+#navBtnWrapper {
+  box-shadow:inset 0px 1px 33px -7px #bbdaf7;
+  background:linear-gradient(to bottom, #FFFFFF 5%, #51A3A3 100%);
+  background-color: #51A3A3;
+  border-radius:16px;
+  border:0px solid #51A3A3;
+  width: 80%;
+}
+
+#navBtnWrapper button,
+#splashWrapper button, 
+input#signUpBtn, 
+input#signInBtn {
+  /* box-shadow:inset 0px 1px 33px -7px #bbdaf7; */
+  background: none;
+  background-color: none;
+  border-radius:7px;
+  border:0px solid #000000;
+  display:inline-block;
+  cursor:pointer;
+  color:#000000;
+  font-family:Verdana;
+  font-size:15px;
+  font-weight:bold;
+  padding:8px 3px;
+  width: 40%;
+  text-shadow:0px 1px 0px #528ecc;
+}
+
+button#start,
+button#stop,
+button#reset,
+button#saveUserInfo {
+  background: none;
+  background-color: none;
+  border-radius:7px;
+  border:0px solid #000000;
+  display:inline-block;
+  cursor:pointer;
+  color:#000000;
+  font-family:Verdana;
+  font-size:15px;
+  /* font-weight:bold; */
+  padding:8px 3px;
+  width: 25%;
+  text-shadow:0px 1px 0px #528ecc;
+}
+
+#navBtnWrapper button a {
+  text-decoration:none;
+  color: #000000;
+}
+
+input#signUpBtn, 
+input#signInBtn,
+button#start,
+button#stop,
+button#reset,
+button#saveUserInfo {
+  border-left-color: #000000;
+  border-right-color: #000000;
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+button#back, button#signUp {
+  border-right-color: #000000;
+  border-right-width: 1px;
+}
+
+button#logOut, button#logIn {
+  border-left-color: #000000;
+  border-left-width: 1px;
 }
 
 fieldset {
   border: none;
 }
 
-#btns {
-  margin-top: 20px;
+div#timerBtns {
+  margin-top: 90px;
   display: block;
+}
+
+#splashWrapper {
+  margin-top: 21px;
+}
+
+div#splashNavBtnWrapper {
+  display: block;
+  background: none;
+  padding-top: 0px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 180px;
+  width: 100%;
+}
+
+#signUpInputsWrapper {
+  display: block;
+  background: none;
+  padding-top: 0px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 500px;
+  width: 100%;
+}
+
+#logInInputsWrapper {
+  display: block;
+  background: none;
+  padding-top: 0px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 366px;
+  width: 100%;
 }
 
 #footer {
@@ -36,18 +169,28 @@ fieldset {
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 88px;
+  height: 80px;
   width: 100%;
 }
 
-#footer button {
+button#home, button#tools {
   background-color: #000000;
-  cursor: pointer;
+  cursor: crosshair;
   font-family:Verdana;
-  font-size:16px;
-  padding:8px 3px;
+  padding: 8px 0px;
   width: 33%;
   text-decoration:none;
+  border: none;
+}
+
+button#timer {
+  background-color: #000000;
+  cursor: crosshair;
+  font-family:Verdana;
+  padding:8px 0px;
+  width: 33%;
+  text-decoration:none;
+  border: none;
 }
 
 #footer button a {
@@ -71,6 +214,10 @@ fieldset {
   list-style: none;
 }
 
+ul#exertionList li {
+  list-style: none;
+}
+
 #methodForm ul {
   list-style: none;
   margin-left: -40px;
@@ -87,7 +234,7 @@ h4, #userViews ul li button {
   color:#000000;
   font-family:Verdana;
   font-size:15px;
-  font-weight:bold;
+  /* font-weight:bold; */
   padding:8px 3px;
   width: 80%;
   text-decoration:none;
@@ -96,11 +243,43 @@ h4, #userViews ul li button {
 
 h4 {
 text-align: center;
-margin-left: 10%;
 }
 
-input, select {
-  width: 80%;
+input#firstName,
+input#lastName,
+input#username,
+input#email,
+input#cell,
+input#fastMethod,
+input#start,
+input#password,
+input#confirm-password {
+  width: 70%;
+}
+
+input#firstName,
+input#lastName,
+input#username,
+input#email,
+input#cell,
+input#fastMethod,
+input#start,
+input#password,
+input#confirm-password {
+  box-shadow:inset 0px 1px 33px -7px #bbdaf7;
+  background:linear-gradient(to bottom, #FFFFFF 5%, #f79fff 100%);
+  background-color:#f79fff;
+  border-radius:7px;
+  border:0px solid #000000;
+  display:inline-block;
+  cursor:pointer;
+  color:#000000;
+  font-family:Verdana;
+  font-size:15px;
+  /* font-weight:bold; */
+  padding:8px 3px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #528ecc;
 }
 
 #userViews ul {
@@ -108,8 +287,25 @@ input, select {
   margin-left: -40px;
 }
 
+h3 {
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-size: 33pt;
+}
+
+p#subText {
+  margin-top: -55px;
+  margin-left: 15%;
+  font-family: Optima, sans-serif;
+  color: #75485E;
+}
+
 #userViews ul li {
-  padding: 20px 0px;
+  padding: 16px 0px;
+}
+
+#userViews ul li a {
+  color:#000000;
+  text-decoration: none;
 }
 
 #userViews ul li button:hover {

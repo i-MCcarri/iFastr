@@ -1,0 +1,92 @@
+.methods__option {
+    position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.methods {
+  padding: 0.4rem 0rem;
+  /* padding-top: 0.3rem; */
+  border: 0;
+}
+
+.methods + .methods {
+  margin-top: 0.4rem;
+}
+
+.methods__name {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: bold;
+}
+
+.methods__item + .methods__item {
+  margin-top: 0.3rem;
+}
+
+/* Hide radios from sighted users,
+while keeping them available to the keyboard */
+.methods__option {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.methods__label {
+  display: block;
+  padding: 0.5rem;
+  border: 0.1rem solid #f79fff;
+  border-radius: 0.4rem;
+  width: 75%;
+}
+
+.methods__label:hover {
+  border-color: #888;
+}
+
+ul#methodsList li label {
+padding-bottom: 2px ;
+}
+
+ul#methodsList li {
+  padding-bottom: 0px;
+}
+
+.methods__item label {
+  margin: 1% 10%;
+}
+
+.pdesc {
+  margin-top: -55px;
+  margin-left: 15%;
+  font-family: Optima, sans-serif;
+  color: #75485E;
+}
+
+button#save {
+  box-shadow:inset 0px 1px 33px -7px #bbdaf7;
+  background:linear-gradient(to bottom, #FFFFFF 5%, #f79fff 100%);
+  background-color:#f79fff;
+  border-radius:7px;
+  border:0px solid #000000;
+  display:inline-block;
+  cursor:pointer;
+  color:#000000;
+  font-family:Verdana;
+  font-size:15px;
+  /* font-weight:bold; */
+  padding:8px 3px;
+  width: 80%;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #528ecc;
+}

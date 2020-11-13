@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Splash from './components/Splash';
 import Header from './components/Header.js';
 import Footer from './components/Footer';

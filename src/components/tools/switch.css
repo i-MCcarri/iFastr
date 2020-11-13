@@ -1,62 +1,166 @@
-/* The switch - the box around the slider */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
+  input#exercise,
+  input#sets,
+  input#reps {
+    width: 85%;
+    height: 18px;
+    padding: 8px 3px;
+    margin-bottom: 16px;
+    border-style: hidden;
+    box-shadow:inset 0px 1px 33px -7px #bbdaf7;
+    background:linear-gradient(to bottom, #FFFFFF 5%, #f79fff 100%);
+    background-color:#f79fff;
+    border-radius:7px;
+    color:#000000;
+    font-family:Verdana;
+    font-size:15px;
+    /* font-weight:bold; */
+    /* padding:8px 3px; */
+    text-decoration:none;
+    text-shadow:0px 1px 0px #528ecc;
+  }
+
+  input#weight {
+    width: 65%;
+    height: 18px;
+    padding: 8px 3px;
+    margin-bottom: 16px;
+    border-style: unset;
+    box-shadow:inset 0px 1px 33px -7px #bbdaf7;
+    background:linear-gradient(to bottom, #FFFFFF 5%, #f79fff 100%);
+    background-color:#f79fff;
+    border-radius:7px;
+    color:#000000;
+    font-family:Verdana;
+    font-size:15px;
+    /* font-weight:bold; */
+    /* padding:8px 3px; */
+    text-decoration:none;
+    text-shadow:0px 1px 0px #528ecc;
+  }
+
+  select#massSelector {
+    width: 87%;
     height: 34px;
+    margin-bottom: 16px;
+    border-style: unset;
+    box-shadow:inset 0px 1px 33px -7px #bbdaf7;
+    background:linear-gradient(to bottom, #FFFFFF 5%, #f79fff 100%);
+    background-color:#f79fff;
+    border-radius:7px;
+    color:#000000;
+    font-family:Verdana;
+    font-size:15px;
+    /* font-weight:bold; */
+    /* padding:8px 3px; */
+    text-decoration:none;
+    text-shadow:0px 1px 0px #528ecc;
   }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+
+  ul#trainingMethod {
+    margin-bottom: 16px;
   }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+
+  input#resist, input#strength, input#aerobic {
+    position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+#method {
+  padding: 0.4rem 0rem;
+  /* padding-top: 0.3rem; */
+  border: 0;
+}
+
+#method + #method {
+  margin-top: 0.8rem;
+}
+
+#method__name {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: bold;
+}
+
+#method__item + #method__item {
+  margin-top: 0.3rem;
+}
+
+/* Hide radios from sighted users,
+while keeping them available to the keyboard */
+.method__option {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.method__label {
+  display: block;
+  padding: 0.5rem;
+  border: 0.1rem solid #f79fff;
+  border-radius: 0.4rem;
+  width: 81%;
+}
+
+.method__label:hover {
+  border-color: #888;
+}
+
+.method__option:checked + .method__label {
+  border: 0.1rem solid #000000;
+}
+
+.method__option:focus + .method__label {
+  box-shadow: 0 0 0 0.1rem #fff, 0 0 0 0.3rem #83c0fd;
+}
+
+.method__option:not(:checked) + .method__label {
+  cursor: pointer;
+}
+
+ul#exertionList li label {
+padding-bottom: 8px ;
+}
+
+li#training-method-desc {
+  padding-bottom: 8px;
+}
+
+h3, #subText {
+  text-align: center;
+}
+
+.mealDetails {
+  list-style: none;
+  margin-left: -10%;
+}
+
+button#saveMealInfo {
+  background: none;
+  background-color: none;
+  border-radius:7px;
+  border:0px solid #000000;
+  display:inline-block;
+  cursor:pointer;
+  color:#000000;
+  font-family:Verdana;
+  font-size:15px;
+  /* font-weight:bold; */
+  padding:8px 3px;
+  width: 25%;
+  text-shadow:0px 1px 0px #528ecc;
+}
+
+div.sustenance  {
+  text-align: center;
+}

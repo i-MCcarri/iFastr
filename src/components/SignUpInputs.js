@@ -1,8 +1,10 @@
 import React from 'react';
+import SignUpBtn from './SignUpBtn';
+import '../App.css'
 
-export default class SignUp extends React.Component {
+export default class SignUpInputs extends React.Component {
     render() {
-        return (
+        return (<div id='signUpInputsWrapper'>
                 <form id='signUpForm'>
                 <fieldset><label for='username'>Username</label> 
                     <div>
@@ -25,9 +27,10 @@ export default class SignUp extends React.Component {
                     </div>
                 </fieldset>
                 <div><br/>
-                    <input type='button' class='signUpBtn' value='Sign Up' />
+                    <SignUpBtn />
                 </div>
             </form>
+            </div>
         );
     }
 }

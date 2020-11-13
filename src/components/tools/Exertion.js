@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../Nav';
+import SwitchBtn from './Switch';
 import './switch.css';
 
 export default class Exertion extends React.Component {
@@ -9,18 +10,29 @@ export default class Exertion extends React.Component {
                 <Nav />
                 <div>
                     <form>
-                        <ul>
-                            <li><label htmlFor='exercise'>Exercise:</label>
-                                <input type='text' id='exercise' />
+                        <ul id='exertionList'>
+                            <li><label htmlFor='exercise'>Exercise:</label><br/>
+                                <input 
+                                    type='text' 
+                                    id='exercise' 
+                                />
                             </li>
-                            <li><label htmlFor='sets'>Sets:</label>
-                                <input type='number' id='sets' />
+                            <li><label htmlFor='sets'>Sets:</label><br/>
+                                <input 
+                                    type='number' 
+                                    id='sets' 
+                                />
                             </li>
-                            <li><label htmlFor='reps'>Reps:</label>
-                                <input type='number' id='reps' />
+                            <li><label htmlFor='reps'>Repetitions:</label><br/>
+                                <input 
+                                    type='number' 
+                                    id='reps' 
+                                />
                             </li>
-                            <li><label htmlFor='weightSelector'>Weight Method:</label>
-                                <select name='topic' id='weightSelector' required>                                    
+                            <li><label htmlFor='weightSelector'>Mass Method:</label><br/>
+                                <select 
+                                    name='topic' 
+                                    id='massSelector' required  >                                    
                                     <option value='na'>----</option>
                                     <option value='barbell'>Barbell</option>
                                     <option value='dumbell'>Dumbell</option>
@@ -31,24 +43,56 @@ export default class Exertion extends React.Component {
                                     <option value='battle-ropes'>Battle Ropes</option>
                                 </select>
                             </li>
-                            <ul id='trainingMethod'>Training Method:
-                                <li><label htmlFor='resist' ></label>
-                                    <input type='radio' name='trnMethod' id='resist' />Resistance
-                                </li>
-                                <li><label htmlFor='strength' ></label>
-                                    <input type='radio' name='trnMethod' id='strength' />Strength
-                                </li>
-                                <li><label htmlFor='aerobic' ></label>
-                                    <input type='radio' name='trnMethod' id='aerobic' />Aerobic
-                                </li>
-                            </ul>
-                            <li><label htmlFor='weight'>Weight:</label>
-                                <input type='number' id='weight' />
-                            </li>
-                            <li><label htmlFor='switch' class="switch">lbs/kg:
-                                <input type="checkbox" />
-                                <span id='switch' class="slider round"></span>
-                                </label>   
+                            <fieldset id="method">
+                                <legend id="method__name"/>
+                            <li id='training-method-desc'>Training Method:
+                                    <div id="method__item">
+                                        <input 
+                                            type="radio" 
+                                            id="resist" 
+                                            className="method__option" 
+                                            name="trnMethod" 
+                                            checked=""
+                                        />
+                                        <label 
+                                            htmlFor="resist" 
+                                            className="method__label">
+                                            Resistance
+                                        </label>
+                                    </div>
+                                    <div id="method__item">
+                                        <input 
+                                            type="radio" 
+                                            id="strength" 
+                                            className="method__option" 
+                                            name="trnMethod"
+                                        />
+                                        <label 
+                                            htmlFor="strength" 
+                                            className="method__label">
+                                            Strength
+                                        </label>
+                                    </div>
+                                    <div id="method__item">
+                                        <input 
+                                            type="radio" 
+                                            id="aerobic" 
+                                            className="method__option" 
+                                            name="trnMethod"
+                                        />
+                                        <label 
+                                            htmlFor="aerobic" 
+                                            className="method__label">
+                                            Aerobic
+                                        </label>
+                                    </div>
+                                
+                            </li></fieldset>
+                            <li>Load:<br/><label htmlFor='weight'><SwitchBtn />  </label>
+                                <input 
+                                    type='number' 
+                                    id='weight' 
+                                /> 
                             </li>
                         </ul>
                     </form>

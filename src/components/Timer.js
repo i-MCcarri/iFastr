@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from './Nav';
 import AnalogClock from "analog-clock-react";
 import Timer from "react-compound-timer";
+import TimerBtns from './TimerBtns';
 import { TimerContext } from "./Context";
 import moment from "moment";
 import "./timer.css";
@@ -21,8 +22,8 @@ class TimerClass extends React.Component {
       width: "300px",
       border: true,
       borderColor: "#2e2e2e",
-      baseColor: "#17a2b8",
-      centerColor: "#459cff",
+      baseColor: "#f79fff",
+      centerColor: "#FFFFFF",
       handColors: {
         second: "#d81c7a",
         minute: "#fff",
@@ -73,7 +74,7 @@ class TimerClass extends React.Component {
   render() {
     let userSelectedMethod = 16;
     return (
-        <div>
+        <div id='timerWrapper'>
             <Nav /><br/>
             <div className="timerwrap">
             <br />
@@ -99,14 +100,10 @@ class TimerClass extends React.Component {
                 </Timer>
                 </div>
             </div>
-            <div id='btns'>
-                <button id='start'>Start</button>
-                <button id='stop'>Stop</button>
-                <button id='reset'>Reset</button>
-
+            <div id='timerBtnsWrapper'>
+                <TimerBtns />
             </div>
         </div>
-        
       );
   }
 }

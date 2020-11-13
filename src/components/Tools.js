@@ -17,7 +17,8 @@ export default class Tools extends React.Component {
                     <ul>
                         <div>
                             <h3 id='pgHeading'>Toolkit</h3>
-                        </div><p id='subText'>for success</p>
+                            <p id='subText'>for success</p>
+                        </div>
                         <li><label htmlFor='profile'></label>
                 <button id='profile'><a href='./tools/profile'>Profile</a></button></li>
                         <li><label htmlFor='accountable'></label>
