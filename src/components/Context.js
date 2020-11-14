@@ -1,7 +1,8 @@
 import React from "react";
 
 export const TimerContext = React.createContext({
-  hours: null
+  hours: null,
+  handleChoice: () => {}
 });
 
 export class TimerProvider extends React.Component {

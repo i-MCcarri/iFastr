@@ -12,7 +12,7 @@ export default class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: [{
+            user: {
                 user_id: '',
                 firstname: '',
                 lastname: '',
@@ -23,14 +23,14 @@ export default class Profile extends React.Component {
                 join_date: '',
                 method: '',
                 fasting_start: ''
-            }]
+            }
         };    
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
-        const { firstName, lastName, userName, email, cell, fastMethod, start } = this.state;
-        const user = { firstName, lastName, userName, email, cell, fastMethod, start };
+        //const { firstName, lastName, userName, email, cell, fastMethod, start, fasting_start } = this.state;
+        //const user = { firstName, lastName, userName, email, cell, fastMethod, start, fasting_start };
         const usersURL = 'http://localhost:8000/users/1';
         const options = {
             method: 'GET',
@@ -49,10 +49,10 @@ export default class Profile extends React.Component {
             })
             .then(response => response.json())
             .then(data => { 
-                console.log(data)
+                //console.log(data)
                 this.setState({
                     //users table 
-                    users: data,
+                    user: data,
                     error: null
                 });
             })
@@ -63,7 +63,7 @@ export default class Profile extends React.Component {
             });
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) =>  {
         alert('Profile information has been updated');
         event.preventDefault();
             this.setState({
@@ -75,7 +75,7 @@ export default class Profile extends React.Component {
                 method: event.target.fastMethod.value,
                 fasting_start: event.target.start.value,
             })
-
+            console.log(event.target.start.value)
             console.log('saving fasting start time...')
         
             const url = 'http://localhost:8000/users/fasting_start/1';
@@ -84,14 +84,14 @@ export default class Profile extends React.Component {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({fasting_start: this.state.users.fasting_start})
+                body: JSON.stringify({fasting_start: event.target.start.value})
             };
             fetch(url, options)
                 .then( response => {
                     if(!response.ok) {
                         throw new Error('something else went wrong, please try again later.')
                     }
-                    response.json()
+                    // response.json()
                 })
                 .then(json => console.log(json))
     }
@@ -104,19 +104,19 @@ export default class Profile extends React.Component {
                     <h2>Profile</h2>
                     <form id='userProfile' onSubmit={this.handleSubmit}>
                         <label htmlFor='firstName'>Firstname</label><br />
-                        <input type='text' id='firstName' name='firstName' defaultValue={this.state.users.firstname}/><br />
+                        <input type='text' id='firstName' name='firstName' defaultValue={this.state.user.firstname}/><br />
                         <label htmlFor='lastName'>Lastname</label><br />
-                        <input type='text' id='lastName' name='lastName' defaultValue={this.state.users.lastname}/><br />
+                        <input type='text' id='lastName' name='lastName' defaultValue={this.state.user.lastname}/><br />
                         <label htmlFor='username'>Username</label><br />
-                        <input type='text' id='username' name='username' defaultValue={this.state.users.username}/><br />
+                        <input type='text' id='username' name='username' defaultValue={this.state.user.username}/><br />
                         <label htmlFor='email'>E-mail</label><br />
-                        <input type='text' id='email' name='email' defaultValue={this.state.users.email}/><br />
+                        <input type='text' id='email' name='email' defaultValue={this.state.user.email}/><br />
                         <label htmlFor='cell'>Cell Phone</label><br />
-                        <input type="tel" id="cell" pattern="\W[0-9]{3}\W[0-9]{3}-[0-9]{4}" maxLength={14} name='cell' defaultValue={this.state.users.cell}/><br />
+                        <input type="tel" id="cell" pattern="\W[0-9]{3}\W[0-9]{3}-[0-9]{4}" maxLength={14} name='cell' defaultValue={this.state.user.cell}/><br />
                         <label htmlFor='fastMethod'>Fasting Method</label><br />
-                        <input type='number' id='fastMethod' name='fastMethod' value={this.state.users.method}/><br />
+                        <input type='number' id='fastMethod' name='fastMethod' placeholder={this.state.user.method} readOnly/><br />
                         <label htmlFor='start'>Fasting Start</label><br />
-                        <input type='time' id='start' name='start' defaultValue={this.state.users.fasting_start}/><br />
+                        <input type='time' id='start' name='start' defaultValue={this.state.user.fasting_start}/><br />
                         <br />
                         <button type='submit' id='saveUserInfo' onClick={ () => this.render() } >Save</button>
                     </form><br />

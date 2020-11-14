@@ -7,20 +7,49 @@ export default class Accountable extends React.Component {
           goBack: () => { }
         }
     }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          fasting_methods: [{
+              fasting_id: '',
+              fasting_start: '',
+              fasting_length: '',
+              feast_start: '',
+              completed: ''
+            }]
+        };
+    }
     
     componentDidMount() {
         // Simple GET request using fetch
-        fetch('http://localhost:8000/ifastr/')
-            .then(response => response.json())
-            .then(data => this.setState({ 
-                //fasting_tracker table
-                id: data.fasting_id, 
-                fasting_start: data.fasting_start, 
-                fasting_length: data.fasting_length, 
-                feast_start: data.feast_start, 
-                completed: data.completed,
+        const url = 'http://wwww.localhost:8000/fasting_tracker/completed/';
+        const options = {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
+        // Simple GET request using fetch
+        fetch(url, options)
+            .then( response => {
+                if(!response.ok) {
+                    throw new Error('something went wrong, please try again later.')
+                }
+                return response;
             })
-        );
+            .then(response => response.json())
+            .then(data => {
+                const fasting_tracker = Object.keys(data)
+                        .map(key => data[key].item);
+                
+                this.setState({ 
+                //fasting_tracker table
+                fasting_tracker: data,
+                error: null
+            })
+        });
     }
     
     render() {

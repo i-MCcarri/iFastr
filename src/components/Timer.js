@@ -69,7 +69,8 @@ class TimerClass extends React.Component {
     // do something when timed!
     console.log("Timer!!");
   };
-
+//get from methods table
+//fasting time
 
   render() {
     let userSelectedMethod = 16;

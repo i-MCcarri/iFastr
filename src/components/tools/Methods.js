@@ -23,7 +23,7 @@ export default class Methods extends React.Component {
     }
 
     componentDidMount() {
-        const { method_id, method_options, fasting_length, feasting_length } = this.state;
+        //const { method_id, method_options, fasting_length, feasting_length } = this.state;
         //const method = { method_id, method_options, fasting_length, feasting_length };
         const url = 'http://wwww.localhost:8000/fasting_methods/';
         const options = {
