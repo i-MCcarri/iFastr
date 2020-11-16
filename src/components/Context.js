@@ -2,7 +2,8 @@ import React from "react";
 
 export const TimerContext = React.createContext({
   hours: null,
-  handleChoice: () => {}
+  handleChoice: () => {},
+  fasting_start: ''
 });
 
 export class TimerProvider extends React.Component {
@@ -12,6 +13,7 @@ export class TimerProvider extends React.Component {
 
   handleChoice = (arg) => {
     this.setState({
+      //split
       hours: arg
     });
   };

@@ -5,10 +5,13 @@ import './switch.css';
 
 export default class Exertion extends React.Component {
     render() {
-        return (
+        return ( //reach goal: exercise tracker
             <div id='exertion'>
                 <Nav />
                 <div>
+                    <h2>Comming Soon</h2>
+                    <h3>Exertion</h3>
+                    <p id='subText'>tracker</p>
                     <form>
                         <ul id='exertionList'>
                             <li><label htmlFor='exercise'>Exercise:</label><br/>
@@ -95,6 +98,7 @@ export default class Exertion extends React.Component {
                                 /> 
                             </li>
                         </ul>
+                        <button type='submit' id='saveUserInfo' onClick={ () => this.render() } >Save</button>
                     </form>
                 </div>
             </div>

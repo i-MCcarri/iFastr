@@ -11,7 +11,7 @@ export default class Accountable extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          fasting_methods: [{
+          fasting_tracker: [{
               fasting_id: '',
               fasting_start: '',
               fasting_length: '',
@@ -51,23 +51,70 @@ export default class Accountable extends React.Component {
             })
         });
     }
+
+    handleDate(timestamp) {
+        let date = new Date(timestamp)
+        let year = date.getFullYear()
+        let monthAsNumber = date.getMonth()
+        let dayAsNumber = date.getDate()
+        if (monthAsNumber === 0) return 'January ' + dayAsNumber + ' ' +year; 
+        else if (monthAsNumber === 1) return 'February ' + dayAsNumber + ' ' +year; 
+        else if (monthAsNumber === 2) return 'March ' + dayAsNumber + ' ' +year; 
+        else if (monthAsNumber === 3) return 'April ' + dayAsNumber + ' ' +year; 
+        else if (monthAsNumber === 4) return 'May ' + dayAsNumber + ' ' +year; 
+        else if (monthAsNumber === 5) return 'June ' + dayAsNumber + ' ' +year; 
+        else if (monthAsNumber === 6) return 'July ' + dayAsNumber + ' ' +year; 
+        else if (monthAsNumber === 7) return 'August ' + dayAsNumber + ' ' +year; 
+        else if (monthAsNumber === 8) return 'September ' + dayAsNumber + ' ' +year; 
+        else if (monthAsNumber === 9) return 'October ' + dayAsNumber + ' ' +year; 
+        else if (monthAsNumber === 10) return 'November ' + dayAsNumber + ' ' +year; 
+        else if (monthAsNumber === 11) return 'December ' + dayAsNumber + ' ' +year; 
+    }
+
+    handleDayOfWeek(timestamp){
+        let date = new Date(timestamp)
+        let dayAsNumber = date.getDay()
+        if (dayAsNumber === 0) return 'Sunday';
+        else if (dayAsNumber === 1) return 'Monday';
+        else if (dayAsNumber === 2) return 'Tuesday';
+        else if (dayAsNumber === 3) return 'Wednesday';
+        else if (dayAsNumber === 4) return 'Thursday';
+        else if (dayAsNumber === 5) return 'Friday';
+        else return 'Saturday';
+    }
+
+    handleTime(timestamp) {
+        let date = new Date(timestamp)
+        let hours = date.getHours()
+        let minutes = date.getMinutes()
+        let time
+        if (minutes === 0) {
+            time = hours + ':00' 
+            return time;
+        } else {
+            time = hours + ':' + minutes 
+            return time;
+        }
+
+    }
     
     render() {
+        const tracking_list = this.state.fasting_tracker.map(tracker => <div className='completedIFTracker'>
+            <ul className='daily-tracker' key={tracker.fasting_id}> <h4>{this.handleDayOfWeek(tracker.fasting_start)}, {this.handleDate(tracker.fasting_start)}</h4>
+                <li>Begining: { this.handleTime(tracker.fasting_start) }</li>
+                <li>Conclude: { this.handleTime(tracker.feast_start) }</li>
+                <li>Period: { tracker.fasting_length }hr</li>
+            </ul></div>
+            )
         return (
             <div id='accountable'>
                 <Nav />
                 <div>
                     <form>
-                        <ul id='accountable'>History of Sucess:
-                            <li>successful IF date from table
-                            </li>
-                            <li>successful IF start time from table
-                            </li>
-                            <li>successful IF Iftar time from table
-                            </li>
-                            <li>time of length of the successful fast from table
-                            </li>
-                        </ul>
+                        <h3>History</h3>
+                        <p id='subText'>of Sucess</p>
+                        {tracking_list}
+                        
                     </form>
                 </div>
             </div>

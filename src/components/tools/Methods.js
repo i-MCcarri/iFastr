@@ -129,7 +129,7 @@ export default class Methods extends React.Component {
                             </fieldset>
                         </ul>
                     </form>
-                    <button type='submit' id='save' onClick={this.saveMethod}><strong>Save</strong></button>
+                    <button type='submit' id='saveUserInfo' onClick={ () => this.render() } >Save</button>
                 </div>
             </div>
         );

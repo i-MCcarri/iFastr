@@ -75,6 +75,7 @@ export default class Profile extends React.Component {
                 method: event.target.fastMethod.value,
                 fasting_start: event.target.start.value,
             })
+            //set fasting_start to context
             console.log(event.target.start.value)
             console.log('saving fasting start time...')
         
@@ -101,7 +102,8 @@ export default class Profile extends React.Component {
             <div id='profile'>
                 <Nav />
                 <div>
-                    <h2>Profile</h2>
+                    <h3>Profile</h3>
+                    <p id='subText'>info.</p>
                     <form id='userProfile' onSubmit={this.handleSubmit}>
                         <label htmlFor='firstName'>Firstname</label><br />
                         <input type='text' id='firstName' name='firstName' defaultValue={this.state.user.firstname}/><br />
