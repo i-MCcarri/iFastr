@@ -3,12 +3,14 @@ import { withRouter } from 'react-router-dom';
 import '../App.css';
 
 class TimerBtns extends React.Component {
+
+    // post to fasting_tracker
+
+    
     render() {
         return (
-            <div id='timerBtns'>  
-                <button id='start'>Start</button>
+            <div id='timerBtns'> 
                 <button id='stop'>Stop</button>
-                <button id='reset'>Reset</button>
             </div>
         );
     }

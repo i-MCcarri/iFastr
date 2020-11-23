@@ -45,11 +45,11 @@ export default class Accountable extends React.Component {
                         .map(key => data[key].item);
                 
                 this.setState({ 
-                //fasting_tracker table
-                fasting_tracker: data,
-                error: null
-            })
-        });
+                    //fasting_tracker table
+                    fasting_tracker: data,
+                    error: null
+                })
+            });
     }
 
     handleDate(timestamp) {
@@ -110,12 +110,9 @@ export default class Accountable extends React.Component {
             <div id='accountable'>
                 <Nav />
                 <div>
-                    <form>
-                        <h3>History</h3>
-                        <p id='subText'>of Sucess</p>
-                        {tracking_list}
-                        
-                    </form>
+                    <h3>History</h3>
+                    <p id='subText'>of Sucess</p>
+                    {tracking_list}
                 </div>
             </div>
         );

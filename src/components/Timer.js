@@ -42,6 +42,33 @@ class TimerClass extends React.Component {
     };
   }
 
+  handleTime(timestamp) {
+    let date = new Date(timestamp)
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+    let seconds = date.getSeconds()
+    let time
+    if (minutes === 0) {
+        minutes = '00';
+    }
+    if (seconds === 0) {
+        seconds = '00';
+    }
+    time = hours + ':' + minutes  + ':' + seconds
+    return time;
+  }
+
+  calcFast(fasting_start){
+    let date = Date.now();
+    let currTime = this.handleTime(date);
+    let elapsedTime = currTime - fasting_start;
+    if (elapsedTime >= 0) {
+      let fast = currTime - fasting_start;
+    } else {
+      return null
+    }
+  }
+
   componentDidMount() {
     console.log(this.context.hours);
     this.setState({
