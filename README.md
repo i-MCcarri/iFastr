@@ -1,4 +1,48 @@
+# iFastr Client
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Intermittent Fasting tracker designed with both beginners and experienced users in mind. Through experimentation a user can time, track, update and review their fasting analytics. 
+
+```iFastr Client``` is the frontend for ```iFastr```. to see iFastr in action, checkout <a href=''>iFastr</a>.
+
+The ```iFastr``` backend can be found at: <a href=''>iFastr-api</a>.
+
+```iFastr``` supports creating a user profile. Authentication is comming soon.
+
+## Let's Boost Our Metabilism
+
+```iFastr``` is for the health enthusiast. We aim to provide a clean user experience while providing the necessary support to succeed in weigh management. ```iFastr```'s guided user experience allows the user to learn about the fundamentals of intermittent fasting, select a fasting option, and set a daily start time. 
+
+The ```iFastr Client``` will continue to to grow. Plans to integrate diet and workout tracking are on the horizon. Push notifications, dual-authentication and personalized data reports are all in the pipeline. 
+
+## Tech Behind the App
+
+<strong>Frontend</strong>
+<ul>
+<li>React</li>
+<li><ul>
+<li>Create React App</li>
+<li>React Router</li>
+<li>React Context</li>
+</ul></li>
+<li>HTML5</li>
+<li>CSS3</li>
+</ul>
+
+<strong>Testing</strong>
+<ul>
+<li>Enzyme</li>
+</ul>
+
+<strong>Production</strong>
+<ul>
+<li>Deployed via Vercel</li>
+</ul>
+
+## Setup
+
+
 
 ## Available Scripts
 
