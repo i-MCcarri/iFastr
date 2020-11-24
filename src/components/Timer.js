@@ -98,7 +98,7 @@ class TimerClass extends React.Component {
   onTimerEnds = () => {
     // do something when timer is up!
     console.log("FEAST!!");
-    let completed = (feast_start - fasting_start >= fasting_length) ? true : false;
+    //let completed = (feast_start - fasting_start >= fasting_length) ? true : false;
     const data = {
       fasting_id: this.state.fasting_id,
       fasting_start: this.state.fasting_start,
@@ -113,7 +113,7 @@ class TimerClass extends React.Component {
             headers: {
                 "Content-Type": "application/json"
             }
-        };
+        }
         .then(res => {
           if (!res.ok)
             return res.json().then(e => Promise.reject(e))
@@ -126,7 +126,6 @@ class TimerClass extends React.Component {
         .catch(error => {
           console.error({ error })
         })
-
   };
 //get from methods table
 //fasting time

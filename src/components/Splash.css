@@ -1,8 +1,9 @@
-/* div#splash {
-    background-image: url('./time.jpg');
+/* body {
+    background-image: url('../images/time.jpg');
     background-repeat: no-repeat;
     width: auto; 
     height: auto; 
     background-position-x: 0px;
     background-position-y: 88px;
+    background-attachment: fixed;
 }  */

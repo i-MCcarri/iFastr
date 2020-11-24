@@ -21,11 +21,11 @@ The ```iFastr Client``` will continue to to grow. Plans to integrate diet and wo
 <strong>Frontend</strong>
 <ul>
 <li>React</li>
-<li><ul>
+<ul>
 <li>Create React App</li>
 <li>React Router</li>
 <li>React Context</li>
-</ul></li>
+</ul>
 <li>HTML5</li>
 <li>CSS3</li>
 </ul>
@@ -42,6 +42,57 @@ The ```iFastr Client``` will continue to to grow. Plans to integrate diet and wo
 
 ## Setup
 
+### local setup
+
+clone this repository to your local machine
+
+```git clone https://github.com/i-MCcarri/iFastr```
+
+Change directory into the cloned repository
+
+``` cd iFastr ```
+
+Make a fresh start of the git history for this project
+
+```re -rf .git && git init```
+
+Install the node dependencies
+
+```npm install```
+
+Follow the setup instructions to get ```iFastr``` up and running.
+
+## Quick Start Scripts
+
+start the application
+
+```npm start``` 
+
+## Overview
+
+### Landing Page
+
+<img src='./src/images/splash'/>
+
+### Registration
+
+<img src='./src/images/reg'/>
+
+### Login
+
+### Home
+
+### Toolkit
+
+### Method
+
+### Profile
+
+### Timer
+
+### Review
+
+### Accountable
 
 
 ## Available Scripts
