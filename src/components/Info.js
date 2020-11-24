@@ -55,7 +55,7 @@ export default class Info extends React.Component {
                 With a daily fasting regimen, you will only begin to experience the first two stages. The latter three require a prolonged fast of up to 72 hours, to reach all benefits. Since a few of these terms are not self-explanatory, we will go over them in more detail below.
             </p>
             <p>
-                Before getting much further into the details of Intermittent Fasting, there are a couple of user settings within the app you must know about to capitalize on the use of iFastr. First, once you have read the below section about methods and have decided on your choice, you will want to go into your toolkit, and navigate to the methods page. You can make your selection and press the save button so it will store your selection. This will allow the timer to know how long to set itself for when you manually press the start button.
+                Before getting much further into the details of Intermittent Fasting, there are a couple of user settings within the app you must know about to capitalize on the use of iFastr. First, read the below section about the <a href='#methods'>method options</a> and have decided on your choice, you will want to go into your <a href='./tools'>toolkit</a>, and navigate to the <a href='./tools/methods'>methods page</a>. You can make your selection and press the save button so it will store your selection. This will allow the timer to know how long to set itself for when you manually press the start button.
             </p>
             <p>
                 If you would like to automate the timer, to start at a specific time each day you may do so, by going into the tool kit, and navigating to your profile page. You may enter the desired fasting start time here and save the changes. Now you are setup to take advantage of the features iFastr has to offer. Happy Fasting!
@@ -155,14 +155,14 @@ export default class Info extends React.Component {
             </p>
             <h4 id='refeed'>Refeeding</h4>
             <p>
-                The most paramount part of breaking a fast, is what you have for breakfast -- the first meal after, no matter what time of day, to break your fast. To continue improvement of the function of cells and tissues after clean up, a balanced and nutritious meal is recomended. A few carbs go a long way. Include sufficient vegetable fiber and fats, proteins, whole grains, and antioxidants. Yes, antioxidants can help prevent cell damage and fight disease and aging. Consider legumes and low starch fruits.
+            The most paramount part of breaking a fast is what you have for breakfast -- the first meal after, no matter what time of day, to break your fast. With the improvement of the function of cells and tissues, after clean up, a balanced and nutritious meal is recommended. A few carbs go a long way. Include sufficient vegetable fiber and fats, proteins, whole grains, and antioxidants. Yes, antioxidants can help prevent cell damage and fight disease and aging. Consider legumes and low starch fruits.
             </p>
             <h4 id='quality'>Food Quality</h4>
             <p>
-                For arguments sake, food quality can mean different things to different people. Eat the foods you feel best after eating. I personally recomend avoiding or minimalizing the usual offenders:<br/>
+                For argument's sake, food quality can mean different things to different people. Eat the foods you feel best after eating. Most recommend avoiding or minimalizing the usual offenders:<br/>
                 <br/>
                 - Genetically Modified (GMO)<br/>
-                - Pesticides In Produce<br/>
+                - Pesticides in Produce<br/>
                 - Simple Sugars<br/>
                 - Simple Starches<br/>
                 - Processed Foods<br/>

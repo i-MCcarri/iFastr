@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../Nav';
+import config from '../../config';
 import './Method.css';
 
 export default class Methods extends React.Component {
@@ -25,7 +26,7 @@ export default class Methods extends React.Component {
     componentDidMount() {
         //const { method_id, method_options, fasting_length, feasting_length } = this.state;
         //const method = { method_id, method_options, fasting_length, feasting_length };
-        const url = 'http://wwww.localhost:8000/fasting_methods/';
+        const url = `${config.API_ENDPOINT}/fasting_methods`;
         const options = {
             method: 'GET',
             headers: {
@@ -68,7 +69,7 @@ export default class Methods extends React.Component {
         e.preventDefault();
         console.log('patching method id...')
         
-        const url = 'http://localhost:8000/users/method/1';
+        const url = `${config.API_ENDPOINT}/users/method/1`;
         const options = {
             method: 'PATCH',
             headers: {

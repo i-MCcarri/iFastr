@@ -32,6 +32,7 @@ class TimerClass extends React.Component {
     };
 
     this.state = {
+      user: '',
       options: {
         ...this.options,
         seconds: 0,
@@ -70,7 +71,7 @@ class TimerClass extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.context.hours);
+    //console.log(this.context.hours);
     this.setState({
       time: this.context.hours * 60 * 60
     });
@@ -98,12 +99,46 @@ class TimerClass extends React.Component {
   };
 //get from methods table
 //fasting time
+  getFastingLength() {
+    const url = 'http://localhost:8000/users/1';
+        const options = {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
+        // Simple GET request using fetch for all tracking table info
+        fetch(url, options)
+            .then( response => {
+                if(!response.ok) {
+                    throw new Error('something went wrong, please try again later.')
+                }
+                return response;
+            })
+            .then(response => response.json())
+            .then(data => {
+                const user_review = Object.keys(data)
+                        .map(key => data[key].item);
+
+                this.setState({ 
+                //fasting_tracker table
+                    user: data,
+                    error: null
+                })
+            });
+  }
+
+  handleCompletedFast() {
+    
+  }
 
   render() {
     let userSelectedMethod = 16;
     return (
         <div id='timerWrapper'>
-            <Nav /><br/>
+            <Nav />
+            <h3>Timer</h3>
             <div className="timerwrap">
             <br />
             <AnalogClock {...this.state.options} />

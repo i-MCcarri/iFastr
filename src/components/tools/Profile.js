@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../Nav';
+import config from '../../config';
 import '../../App.css';
 
 export default class Profile extends React.Component {
@@ -31,7 +32,7 @@ export default class Profile extends React.Component {
     componentDidMount() {
         //const { firstName, lastName, userName, email, cell, fastMethod, start, fasting_start } = this.state;
         //const user = { firstName, lastName, userName, email, cell, fastMethod, start, fasting_start };
-        const usersURL = 'http://localhost:8000/users/1';
+        const usersURL = `${config.API_ENDPOINT}/users/1`;
         const options = {
             method: 'GET',
             headers: {
@@ -79,7 +80,7 @@ export default class Profile extends React.Component {
             console.log(event.target.start.value)
             console.log('saving fasting start time...')
         
-            const url = 'http://localhost:8000/users/fasting_start/1';
+            const url = `${config.API_ENDPOINT}/users/fasting_start/${this.state.user.user_id}`;
             const options = {
                 method: 'PATCH',
                 headers: {

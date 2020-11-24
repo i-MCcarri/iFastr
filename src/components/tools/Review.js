@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../Nav';
+import config from '../../config';
 
 export default class Review extends React.Component {
     static defaultProps = {
@@ -22,7 +23,7 @@ export default class Review extends React.Component {
     }
     
     componentDidMount() {
-        const url = 'http://localhost:8000/fasting_tracker/';
+        const url = `${config.API_ENDPOINT}/fasting_tracker`;
         const options = {
             method: 'GET',
             headers: {

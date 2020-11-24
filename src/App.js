@@ -16,7 +16,9 @@ import Support from './components/tools/Support';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
-function App() {
+class App extends React.Component {
+  
+render() {
   return (
     <Router>
       <Header />
@@ -36,5 +38,7 @@ function App() {
     </Router>
   );
 }
+}
+
 
 export default App;

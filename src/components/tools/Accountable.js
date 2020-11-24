@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../Nav';
+import config from '../../config';
 
 export default class Accountable extends React.Component {
     static defaultProps = {
@@ -23,7 +24,7 @@ export default class Accountable extends React.Component {
     
     componentDidMount() {
         // Simple GET request using fetch
-        const url = 'http://wwww.localhost:8000/fasting_tracker/completed/';
+        const url = `${config.API_ENDPOINT}/fasting_tracker/completed/`;
         const options = {
             method: 'GET',
             headers: {
