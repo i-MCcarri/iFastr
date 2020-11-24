@@ -1,7 +1,7 @@
 let apiPath
 
 if (process.env.NODE_ENV === 'production') {
-    apiPath = 'future server path'
+    apiPath = 'https://stark-sierra-08099.herokuapp.com'
 } else {
     apiPath = 'http://localhost:8000'
 }
