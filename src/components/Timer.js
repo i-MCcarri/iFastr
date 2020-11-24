@@ -5,6 +5,7 @@ import Timer from "react-compound-timer";
 import TimerBtns from './TimerBtns';
 import { TimerContext } from "./Context";
 import moment from "moment";
+import config from '../config';
 import "./timer.css";
 
 class TimerClass extends React.Component {
@@ -69,9 +70,10 @@ class TimerClass extends React.Component {
       return null
     }
   }
-
+  //Do I need to get all Fasting_Tracker data?
   componentDidMount() {
     //console.log(this.context.hours);
+    this.getFastingLength();
     this.setState({
       time: this.context.hours * 60 * 60
     });
@@ -94,13 +96,42 @@ class TimerClass extends React.Component {
   }
 
   onTimerEnds = () => {
-    // do something when timed!
-    console.log("Timer!!");
+    // do something when timer is up!
+    console.log("FEAST!!");
+    let completed = (feast_start - fasting_start >= fasting_length) ? true : false;
+    const data = {
+      fasting_id: this.state.fasting_id,
+      fasting_start: this.state.fasting_start,
+      fasting_length:  this.state.fasting_length,
+      feast_start: new Date(),
+      completed: this.state.completed       
+    }
+    const url = `${config.API_ENDPOINT}/fasting_tracker`;
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        .then(res => {
+          if (!res.ok)
+            return res.json().then(e => Promise.reject(e))
+          return res.json()
+        })
+        .then(tracker => {
+          this.context.addNote(tracker)
+          this.props.history.push('/tools/review')
+        })
+        .catch(error => {
+          console.error({ error })
+        })
+
   };
 //get from methods table
 //fasting time
   getFastingLength() {
-    const url = 'http://localhost:8000/users/1';
+    const url = `${config.API_ENDPOINT}/users/1`;
         const options = {
             method: 'GET',
             headers: {
@@ -130,7 +161,7 @@ class TimerClass extends React.Component {
   }
 
   handleCompletedFast() {
-    
+
   }
 
   render() {
