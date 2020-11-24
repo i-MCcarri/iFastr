@@ -72,28 +72,43 @@ start the application
 
 ### Landing Page
 
-<img src='./src/images/splash'/>
+<img src='https://github.com/i-MCcarri/iFastr/blob/main/src/images/splash.png?raw=true'/>
 
 ### Registration
 
-<img src='./src/images/reg'/>
+<img src='https://github.com/i-MCcarri/iFastr/blob/main/src/images/reg.png?raw=true'/>
 
 ### Login
 
+<img src='https://github.com/i-MCcarri/iFastr/blob/main/src/images/login.png?raw=true'/>
+
 ### Home
+
+<img src='https://github.com/i-MCcarri/iFastr/blob/main/src/images/home.png?raw=true'/>
 
 ### Toolkit
 
+<img src='https://github.com/i-MCcarri/iFastr/blob/main/src/images/toolkit.png?raw=true'/>
+
 ### Method
+
+<img src='https://github.com/i-MCcarri/iFastr/blob/main/src/images/method.png?raw=true'/>
 
 ### Profile
 
+<img src='https://github.com/i-MCcarri/iFastr/blob/main/src/images/profile.png?raw=true'/>
+
 ### Timer
+
+<img src='https://github.com/i-MCcarri/iFastr/blob/main/src/images/timer.png?raw=true'/>
 
 ### Review
 
+<img src='https://github.com/i-MCcarri/iFastr/blob/main/src/images/review.png?raw=true'/>
+
 ### Accountable
 
+<img src='https://github.com/i-MCcarri/iFastr/blob/main/src/images/accountable.png?raw=true'/>
 
 ## Available Scripts
 
