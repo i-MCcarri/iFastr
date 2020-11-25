@@ -157,13 +157,8 @@ class TimerClass extends React.Component {
             });
   }
 
-  handleAutomation() {
-    let currTime = now();
-    console.log(currTime)
-  }
 
   render() {
-    this.handleAutomation
     return (
         <div id='timerWrapper'>
             <Nav />
