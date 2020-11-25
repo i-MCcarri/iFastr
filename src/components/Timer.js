@@ -7,14 +7,12 @@ import { TimerContext } from "./Context";
 import moment from "moment";
 import config from '../config';
 import "./timer.css";
-
 class TimerClass extends React.Component {
     static defaultProps = {
         history: {
           goBack: () => { }
         }
     }
-
   static contextType = TimerContext;
   constructor(props) {
     super(props);
@@ -31,7 +29,6 @@ class TimerClass extends React.Component {
         hour: "#fff"
       }
     };
-
     this.state = {
       join: '',
       options: {
@@ -59,18 +56,18 @@ class TimerClass extends React.Component {
     time = hours + ':' + minutes  + ':' + seconds
     return time;
   }
-
   calcFast(fasting_start){
     let date = Date.now();
     let currTime = this.handleTime(date);
     let elapsedTime = currTime - fasting_start;
-    if (elapsedTime >= 0) {
-      let fast = currTime - fasting_start;
+    if (elapsedTime > 0) {
+      return true;
     } else {
-      return null
+      return false;
     }
   }
-  //Do I need to get all Fasting_Tracker data?
+
+  
   componentDidMount() {
     this.getFastingLength();
     //console.log(this.context.hours);
@@ -90,12 +87,10 @@ class TimerClass extends React.Component {
       });
     }, 1000);
   }
-
   componentWillUnmount() {
     console.log(this.context.hours);
     clearInterval(this.interval);
   }
-
   onTimerEnds = () => {
     // do something when timer is up!
     console.log("FEAST!!");
@@ -156,9 +151,13 @@ class TimerClass extends React.Component {
                 })
             });
   }
-
-
   render() {
+    let hrs=parseInt(this.state.join.fasting_length);
+    //console.log(hrs);
+    if(!hrs) hrs = 0;
+    let millis=moment
+    .duration(hrs, "hours") //this.context.hours here is the timer starting point
+    .asMilliseconds();
     return (
         <div id='timerWrapper'>
             <Nav />
@@ -168,23 +167,24 @@ class TimerClass extends React.Component {
             <AnalogClock {...this.state.options} />
             <br />
                 <div className="digital" style={{ fontFamily: "Consolas, monospace" }}>
-                <Timer
-                // initialTime={60 * 1000}
-                initialTime={moment
-                    .duration(this.context.hours, "hours") //this.context.hours here is the timer starting point
-                    .asMilliseconds()}
-                direction="backward"
-                timeToUpdate={1000}
-                checkpoints={[
-                    {
-                    time: 1,
-                    callback: () => this.onTimerEnds()
-                    }
-                ]}
-                >
-                <Timer.Hours />:<Timer.Minutes />:<Timer.Seconds />{" "}
-        
-                </Timer>
+                {
+                  hrs && <> 
+                    <Timer
+                    // initialTime={60 * 1000}
+                    initialTime={millis}
+                    direction="backward"
+                    timeToUpdate={1000}
+                    checkpoints={[
+                        {
+                        time: 1,
+                        callback: () => this.onTimerEnds()
+                        }
+                    ]}
+                    >
+                    <Timer.Hours />:<Timer.Minutes />:<Timer.Seconds />{" "}
+                    </Timer>
+                    </>
+              }
                 </div>
             </div>
             <div id='timerBtnsWrapper'>
@@ -194,5 +194,4 @@ class TimerClass extends React.Component {
       );
   }
 }
-
 export default TimerClass;
