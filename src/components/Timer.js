@@ -40,33 +40,6 @@ class TimerClass extends React.Component {
       time: 0
     };
   }
-
-  handleTime(timestamp) {
-    let date = new Date(timestamp)
-    let hours = date.getHours()
-    let minutes = date.getMinutes()
-    let seconds = date.getSeconds()
-    let time
-    if (minutes === 0) {
-        minutes = '00';
-    }
-    if (seconds === 0) {
-        seconds = '00';
-    }
-    time = hours + ':' + minutes  + ':' + seconds
-    return time;
-  }
-  calcFast(fasting_start){
-    let date = Date.now();
-    let currTime = this.handleTime(date);
-    let elapsedTime = currTime - fasting_start;
-    if (elapsedTime > 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   
   componentDidMount() {
     this.getFastingLength();
@@ -96,7 +69,6 @@ class TimerClass extends React.Component {
     console.log("FEAST!!");
     //let completed = (feast_start - fasting_start >= fasting_length) ? true : false;
     const data = {
-      fasting_id: this.state.fasting_id,
       fasting_start: this.state.fasting_start,
       fasting_length:  this.state.fasting_length,
       feast_start: new Date(),
@@ -151,6 +123,34 @@ class TimerClass extends React.Component {
                 })
             });
   }
+
+  handleTime(timestamp) {
+    let date = new Date(timestamp)
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+    let seconds = date.getSeconds()
+    let time
+    if (minutes === 0) {
+        minutes = '00';
+    }
+    if (seconds === 0) {
+        seconds = '00';
+    }
+    time = hours + ':' + minutes  + ':' + seconds
+    return time;
+  }
+
+  calcFast(fasting_start){
+    let date = Date.now();
+    let currTime = this.handleTime(date);
+    let elapsedTime = currTime - fasting_start;
+    if (elapsedTime > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
   render() {
     let hrs=parseInt(this.state.join.fasting_length);
     //console.log(hrs);
