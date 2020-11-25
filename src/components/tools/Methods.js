@@ -83,6 +83,7 @@ export default class Methods extends React.Component {
                     throw new Error('something else went wrong, please try again later.')
                 }
             })
+            
     }
 
     render() {
@@ -130,7 +131,7 @@ export default class Methods extends React.Component {
                             </fieldset>
                         </ul>
                     </form>
-                    <button type='submit' id='saveUserInfo' onClick={ () => this.render() } >Save</button>
+                    <button type='submit' id='saveUserInfo' onClick={ (e) => this.saveMethod(e) } >Save</button>
                 </div>
             </div>
         );

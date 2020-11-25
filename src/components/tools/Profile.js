@@ -80,7 +80,7 @@ export default class Profile extends React.Component {
             console.log(event.target.start.value)
             console.log('saving fasting start time...')
         
-            const url = `${config.API_ENDPOINT}/users/fasting_start/${this.state.user.user_id}`;
+            const url = `${config.API_ENDPOINT}/users/fasting_start/1`;
             const options = {
                 method: 'PATCH',
                 headers: {
@@ -93,7 +93,7 @@ export default class Profile extends React.Component {
                     if(!response.ok) {
                         throw new Error('something else went wrong, please try again later.')
                     }
-                    // response.json()
+                    //response.json()
                 })
                 .then(json => console.log(json))
     }

@@ -33,7 +33,7 @@ class TimerClass extends React.Component {
     };
 
     this.state = {
-      user: '',
+      join: '',
       options: {
         ...this.options,
         seconds: 0,
@@ -72,8 +72,9 @@ class TimerClass extends React.Component {
   }
   //Do I need to get all Fasting_Tracker data?
   componentDidMount() {
-    //console.log(this.context.hours);
     this.getFastingLength();
+    //console.log(this.context.hours);
+    //this.getFastingLength();
     this.setState({
       time: this.context.hours * 60 * 60
     });
@@ -130,14 +131,13 @@ class TimerClass extends React.Component {
 //get from methods table
 //fasting time
   getFastingLength() {
-    const url = `${config.API_ENDPOINT}/users/1`;
+    const url = `${config.API_ENDPOINT}/users/timer/1`;
         const options = {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json"
             }
         };
-
         // Simple GET request using fetch for all tracking table info
         fetch(url, options)
             .then( response => {
@@ -148,23 +148,22 @@ class TimerClass extends React.Component {
             })
             .then(response => response.json())
             .then(data => {
-                const user_review = Object.keys(data)
-                        .map(key => data[key].item);
-
+                console.log(data)
                 this.setState({ 
                 //fasting_tracker table
-                    user: data,
+                    join: data,
                     error: null
                 })
             });
   }
 
-  handleCompletedFast() {
-
+  handleAutomation() {
+    let currTime = now();
+    console.log(currTime)
   }
 
   render() {
-    let userSelectedMethod = 16;
+    this.handleAutomation
     return (
         <div id='timerWrapper'>
             <Nav />
@@ -177,7 +176,7 @@ class TimerClass extends React.Component {
                 <Timer
                 // initialTime={60 * 1000}
                 initialTime={moment
-                    .duration(userSelectedMethod, "hours") //this.context.hours here is the timer starting point
+                    .duration(this.context.hours, "hours") //this.context.hours here is the timer starting point
                     .asMilliseconds()}
                 direction="backward"
                 timeToUpdate={1000}
