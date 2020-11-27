@@ -32,6 +32,7 @@ class TimerClass extends React.Component {
     };
     this.state = {
       join: '',
+      digital_hours: '',
       options: {
         ...this.options,
         seconds: 0,
@@ -122,7 +123,8 @@ class TimerClass extends React.Component {
                     join: data,
                     error: null
                 }, function(){
-                  this.calcFast(this.state.join.fasting_start, this.state.join.fasting_length);
+                  let hours = this.calcFast(this.state.join.fasting_start, this.state.join.fasting_length);
+                  this.setState({digital_hours: hours})
                 })
                 
             });
@@ -171,7 +173,7 @@ class TimerClass extends React.Component {
   }
   
   render() {
-    let hrs=parseInt(this.state.join.fasting_length);
+    let hrs=this.state.digital_hours;
     //console.log(hrs);
     if(!hrs) hrs = 0;
     let millis=moment
