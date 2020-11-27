@@ -4,9 +4,10 @@ import AnalogClock from "analog-clock-react";
 import Timer from "react-compound-timer";
 import TimerBtns from './TimerBtns';
 import { TimerContext } from "./Context";
-import moment from "moment";
+import moment, { now } from "moment";
 import config from '../config';
 import "./timer.css";
+
 class TimerClass extends React.Component {
     static defaultProps = {
         history: {
@@ -120,34 +121,52 @@ class TimerClass extends React.Component {
                 //fasting_tracker table
                     join: data,
                     error: null
+                }, function(){
+                  this.calcFast(this.state.join.fasting_start, this.state.join.fasting_length);;
                 })
+                
             });
   }
 
-  handleTime(timestamp) {
-    let date = new Date(timestamp)
-    let hours = date.getHours()
-    let minutes = date.getMinutes()
-    let seconds = date.getSeconds()
-    let time
-    if (minutes === 0) {
-        minutes = '00';
-    }
-    if (seconds === 0) {
-        seconds = '00';
-    }
-    time = hours + ':' + minutes  + ':' + seconds
-    return time;
-  }
+  //prevent timer reset on page reload
+  calcFast(IFStart, IFLength) {
+    let startTimeArr = IFStart.split(':');
+    let duration = moment.duration(IFLength, 'hours');
+    let todays_fast_start = moment().hours(startTimeArr[0]).minutes(startTimeArr[1]).seconds(startTimeArr[2])
+    let yesterdays_fast_start = todays_fast_start.clone().subtract(1, 'days')
+    let now = moment();
+    let milliseconds;
+    let temp;
+    let remaining_time;
+  
 
-  calcFast(fasting_start){
-    let date = Date.now();
-    let currTime = this.handleTime(date);
-    let elapsedTime = currTime - fasting_start;
-    if (elapsedTime > 0) {
-      return true;
+    // if the fast has gone into the next day:
+    // compare current time to the feast start (end of fast)
+    if (now < yesterdays_fast_start + duration) {
+      // >>> we are still fasting
+      // calculate remaining time for user's fast
+      milliseconds = (yesterdays_fast_start + duration) - now;
+      temp = moment.duration(milliseconds);
+      remaining_time = temp.asHours();
+      console.log(remaining_time);
+      return remaining_time;
+    }
+    // if the fast is within the same day 2 things must be true:
+    // 1. current time must be after fasting start time && 
+    // 2. current time must be before the feast start time (fast end)
+    else if ((now > todays_fast_start) && (now < todays_fast_start + duration)) {
+      // >>> we have started fasting
+      // calculate remaining time for user's fast
+      milliseconds = (todays_fast_start + duration) - now;
+      temp = moment.duration(milliseconds)
+      remaining_time = temp.asHours();
+      console.log(remaining_time);
+      return remaining_time;
     } else {
-      return false;
+      // if we reached this line we're not fasting
+      console.log('Feast!!!')
+      return 0;
+      
     }
   }
   
