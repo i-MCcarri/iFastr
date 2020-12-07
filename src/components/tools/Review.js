@@ -99,9 +99,9 @@ export default class Review extends React.Component {
     }
 
     render() {
-        const fasting_review = this.state.fasting_review.map(review => <div className='reviewIFTracker'>
-            <ul className='daily-review' key={review.fasting_id}> <h4>{this.handleDayOfWeek(review.fasting_start)}, {this.handleDate(review.fasting_start)}</h4>
-                <li>Begining: { this.handleTime(review.fasting_start) }</li>
+        const fasting_review = this.state.fasting_review.map(review => <div className='reviewIFTracker' key={review.fasting_id}>
+            <ul className='daily-review'> <h4>{this.handleDayOfWeek(review.feast_start)}, {this.handleDate(review.feast_start)}</h4>
+                <li>Begining: { review.fasting_start }</li>
                 <li>Conclude: { this.handleTime(review.feast_start) }</li>
                 <li>Period: { review.fasting_length }hr</li>
             </ul></div>

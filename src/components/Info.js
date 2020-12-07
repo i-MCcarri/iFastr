@@ -249,6 +249,9 @@ export default class Info extends React.Component {
                 <br/>
                 How would you divide up your muscle groups? Here is an example.<br/>
                 <br/>
+            </p>
+        </div>
+        <div>
                 <strong>Muscle Grouping</strong><br/>
                 <ul>Core:<ul>
                     <li>Abdominals</li>
@@ -265,7 +268,7 @@ export default class Info extends React.Component {
                     <li>Chest</li>
                     <li>Shoulders</li>
                 </ul></ul>
-                <br/>
+            <p>
                 Working out with a muscle group in mind per day makes it easier track and maintain growth. <br/>
                 <br/>
                 <strong>Coming Soon:</strong> iFastr Exercise Tracker

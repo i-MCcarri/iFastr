@@ -3,7 +3,7 @@ import React from "react";
 export const TimerContext = React.createContext({
   hours: null,
   handleChoice: () => {},
-  fasting_start: ''
+  addFast: () => {},
 });
 
 export class TimerProvider extends React.Component {

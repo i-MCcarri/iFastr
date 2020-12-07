@@ -100,9 +100,9 @@ export default class Accountable extends React.Component {
     }
     
     render() {
-        const tracking_list = this.state.fasting_tracker.map(tracker => <div className='completedIFTracker'>
-            <ul className='daily-tracker' key={tracker.fasting_id}> <h4>{this.handleDayOfWeek(tracker.fasting_start)}, {this.handleDate(tracker.fasting_start)}</h4>
-                <li>Begining: { this.handleTime(tracker.fasting_start) }</li>
+        const tracking_list = this.state.fasting_tracker.map(tracker => <div className='completedIFTracker' key={tracker.fasting_id}>
+            <ul className='daily-tracker'> <h4>{this.handleDayOfWeek(tracker.feast_start)}, {this.handleDate(tracker.feast_start)}</h4>
+                <li>Begining: { tracker.fasting_start }</li>
                 <li>Conclude: { this.handleTime(tracker.feast_start) }</li>
                 <li>Period: { tracker.fasting_length }hr</li>
             </ul></div>

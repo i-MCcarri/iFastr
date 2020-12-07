@@ -1,6 +1,6 @@
 import React from 'react';
-import SignUpInputs from './SignUpInputs';
-import LogInInputs from './LogInInputs';
+import SignUpForm from './SignUpForm';
+import LogInForm from './LogInForm';
 import { withRouter } from 'react-router-dom';
 
 class SplashNav extends React.Component {
@@ -27,8 +27,8 @@ class SplashNav extends React.Component {
     render() {
         return (
             <div id='splashNav'>
-                {(this.state.signup) && <div className='hidden' id='newUser'><SignUpInputs /></div>} 
-            {(this.state.login) && <div className='hidden' id='returningUser'><LogInInputs /></div>}
+                {(this.state.signup) && <div className='hidden' id='newUser'><SignUpForm /></div>} 
+            {(this.state.login) && <div className='hidden' id='returningUser'><LogInForm /></div>}
                 <div id='splashNavBtnWrapper'>  
                     <label htmlFor='signUp'></label>
                     <button id='signUp' onClick={this.setSignUp} >Sign-Up</button>

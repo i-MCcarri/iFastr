@@ -141,7 +141,7 @@ div#splashNavBtnWrapper {
   width: 100%;
 }
 
-#signUpInputsWrapper {
+#signUpFormWrapper {
   display: block;
   background: none;
   padding-top: 0px;
@@ -152,7 +152,7 @@ div#splashNavBtnWrapper {
   width: 100%;
 }
 
-#logInInputsWrapper {
+#logInFormWrapper {
   display: block;
   background: none;
   padding-top: 0px;

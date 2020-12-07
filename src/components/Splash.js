@@ -2,13 +2,12 @@ import React from 'react';
 import SplashNav from './SplashNav'
 import '../App.css';
 import './Splash.css';
-import Background from '../images/time.jpg'
 
 export default class Splash extends React.Component {
     
     render() {
         return (
-        <body className='body'>
+        <div className='body'>
             <div id='splash'>
                     <div id='main'>
                         <div id='splashWrapper'>
@@ -16,7 +15,7 @@ export default class Splash extends React.Component {
                         </div>
                     </div>
             </div>
-        </body>
+        </div>
         );
     }
 }

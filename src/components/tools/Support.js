@@ -33,7 +33,7 @@ export default class Support extends React.Component {
                                 <li><label htmlFor='emailSprt' /><input type='radio' name='contact' id='emailSprt' />E-mail</li>
                                 <li><label htmlFor='telSprt' /><input type='radio' name='contact' id='telSprt' />Text/Phone</li>
                             </ul>
-                            <li><label for="sprtBody"></label>
+                            <li><label htmlFor="sprtBody"></label>
                                 <textarea id="sprtBody" name="sprtBody" rows="8" cols="32">
                                 </textarea>
                             </li>

@@ -1,8 +1,8 @@
 import React from 'react';
 import Nav from './Nav';
-import AnalogClock from "analog-clock-react";
+//Comming Soon: import AnalogClock from "analog-clock-react";
 import Timer from "react-compound-timer";
-import TimerBtns from './TimerBtns';
+//Coming Soon: import TimerBtns from './TimerBtns';
 import { TimerContext } from "./Context";
 import moment, { now } from "moment";
 import config from '../config';
@@ -14,7 +14,9 @@ class TimerClass extends React.Component {
           goBack: () => { }
         }
     }
+
   static contextType = TimerContext;
+
   constructor(props) {
     super(props);
     this.options = {
@@ -62,21 +64,22 @@ class TimerClass extends React.Component {
       });
     }, 1000);
   }
+
   componentWillUnmount() {
-    console.log(this.context.hours);
+    //console.log(this.context.hours);
     clearInterval(this.interval);
   }
+
   onTimerEnds = () => {
     // do something when timer is up!
     console.log("FEAST!!");
     //let completed = (feast_start - fasting_start >= fasting_length) ? true : false;
     const data = {
-      fasting_start: this.state.fasting_start,
-      fasting_length:  this.state.fasting_length,
-      feast_start: new Date(),
-      completed: this.state.completed       
+      fasting_start: this.state.join.fasting_start,
+      fasting_length:  this.state.join.fasting_length,
+      completed: true       
     }
-    const url = `${config.API_ENDPOINT}/fasting_tracker`;
+    const postURL = `${config.API_ENDPOINT}/fasting_tracker`;
         const options = {
             method: 'POST',
             body: JSON.stringify(data),
@@ -84,23 +87,23 @@ class TimerClass extends React.Component {
                 "Content-Type": "application/json"
             }
         }
-        .then(res => {
-          if (!res.ok)
-            return res.json().then(e => Promise.reject(e))
-          return res.json()
-        })
-        .then(tracker => {
-          this.context.addNote(tracker)
-          this.props.history.push('/tools/review')
-        })
-        .catch(error => {
-          console.error({ error })
-        })
+        fetch(postURL, options)
+          .then(res => {
+            if (!res.ok)
+              return res.json().then(e => Promise.reject(e))
+            return res.json()
+          })
+          .then(tracker => {
+            this.props.history.push('/tools/review')
+          })
+          .catch(error => {
+            console.error({ error })
+          })
   };
 //get from methods table
 //fasting time
   getFastingLength() {
-    const url = `${config.API_ENDPOINT}/users/timer/1`;
+    const getURL = `${config.API_ENDPOINT}/users/timer/1`;
         const options = {
             method: 'GET',
             headers: {
@@ -108,7 +111,7 @@ class TimerClass extends React.Component {
             }
         };
         // Simple GET request using fetch for all tracking table info
-        fetch(url, options)
+        fetch(getURL, options)
             .then( response => {
                 if(!response.ok) {
                     throw new Error('something went wrong, please try again later.')
@@ -140,7 +143,7 @@ class TimerClass extends React.Component {
     let milliseconds;
     let temp;
     let remaining_time;
-  
+    console.log(todays_fast_start)
 
     // if the fast has gone into the next day:
     // compare current time to the feast start (end of fast)
@@ -150,7 +153,6 @@ class TimerClass extends React.Component {
       milliseconds = (yesterdays_fast_start + duration) - now;
       temp = moment.duration(milliseconds);
       remaining_time = temp.asHours();
-      console.log(remaining_time);
       return remaining_time;
     }
     // if the fast is within the same day 2 things must be true:
@@ -162,11 +164,9 @@ class TimerClass extends React.Component {
       milliseconds = (todays_fast_start + duration) - now;
       temp = moment.duration(milliseconds)
       remaining_time = temp.asHours();
-      console.log(remaining_time);
       return remaining_time;
     } else {
       // if we reached this line we're not fasting
-      console.log('Feast!!!')
       return 0;
       
     }
@@ -185,7 +185,7 @@ class TimerClass extends React.Component {
             <h3>Timer</h3>
             <div className="timerwrap">
             <br />
-            <AnalogClock {...this.state.options} />
+            {/* Coming soon: <AnalogClock {...this.state.options} /> */}
             <br />
                 <div className="digital" style={{ fontFamily: "Consolas, monospace" }}>
                 {
@@ -209,7 +209,7 @@ class TimerClass extends React.Component {
                 </div>
             </div>
             <div id='timerBtnsWrapper'>
-                <TimerBtns />
+                {/* Comming Soon: <TimerBtns /> */}
             </div>
         </div>
       );

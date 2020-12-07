@@ -31,9 +31,9 @@ export default class Sustenance extends React.Component {
                                 <input type='text' id='fat'/></li>
                                 <li><label htmlFor='protein'>Protein:</label><br/>
                                 <input type='text' id='protein'/></li>
-                                <li><label htmlFor='switch' class="switch">
+                                <li><label htmlFor='switch' className="switch">
                                 <input type="checkbox" />
-                                <span id='switch' class="slider round">Daily Vitamin</span>
+                                <span id='switch' className="slider round">Daily Vitamin</span>
                                 </label></li></ul>                                
                             <h4>Water Intake</h4>
                             <ul className='mealDetails'><li><label htmlFor='ozLiquids'>H2O:</label><br/>

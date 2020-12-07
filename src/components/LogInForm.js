@@ -2,20 +2,20 @@ import React from 'react';
 import SignInBtn from './SignInBtn';
 import '../App.css';
 
-export default class LogInInputs extends React.Component {
+export default class LogInForm extends React.Component {
     render() {
-        return (<div id='logInInputsWrapper'>
+        return (<div id='logInFormWrapper'>
                 <form id='logInForm' action='/home'>
                     <fieldset>
-                        <label for='username'>Username: </label>
+                        <label htmlFor='username'>Username: </label>
                         <div>
-                            <input type='textarea' class='username' id='username' required/>
+                            <input type='textarea' className='username' id='username' required/>
                         </div>
                     </fieldset>
                     <fieldset>
-                        <label for='password'>Password: </label>
+                        <label htmlFor='password'>Password: </label>
                         <div>
-                            <input type='password' class='password ' id='password' required/>
+                            <input type='password' className='password ' id='password' required/>
                         </div>
                     </fieldset>
                     <div><br/>

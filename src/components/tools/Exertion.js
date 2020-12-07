@@ -56,6 +56,7 @@ export default class Exertion extends React.Component {
                                             className="method__option" 
                                             name="trnMethod" 
                                             checked=""
+                                            readOnly
                                         />
                                         <label 
                                             htmlFor="resist" 
