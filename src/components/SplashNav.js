@@ -33,7 +33,8 @@ class SplashNav extends React.Component {
                     <label htmlFor='signUp'></label>
                     <button id='signUp' onClick={this.setSignUp} >Sign-Up</button>
                     <label htmlFor='logIn'></label>
-                    <button id='logIn' onClick={()=>this.setLogIn()} >Log-In</button>
+                    <button id='logIn' onClick={()=>this.setLogIn()} >Log-In</button><br /><br />
+                    <a href='https://i-fastr.vercel.app/home#setup'>setup instructions</a> 
                 </div>
             </div>
         );

@@ -12,7 +12,7 @@ export default class Splash extends React.Component {
                 <p>intelligent fasting assistant.<br /> set, track, review.</p>
                     <div id='main'>
                         <div id='splashWrapper'>
-                            <SplashNav /> 
+                            <SplashNav />
                         </div>
                     </div>
             </div>

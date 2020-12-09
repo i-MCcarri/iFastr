@@ -17,6 +17,7 @@ export default class Info extends React.Component {
         <h3>Intermittent Fasting</h3>
         <p id='subText'>key links</p>
         <ul className='table-of-contents'>
+            <li><a href='#setup'>Setup Instructions</a></li>
             <li><a href='#intro'>Introduction</a></li>
             <li><a href='#safe'>Safety</a> & <a href='#sideeff'>Side Effect</a></li>
             <li><a href='#methods'>Methods</a></li>
@@ -35,6 +36,13 @@ export default class Info extends React.Component {
             <li><a href='#exertion'>Regular Exercise</a></li>
         </ul>
         <div id='info'>
+            <h4 id='setup'>Setup Instructions</h4>
+            <p>
+                Before getting much further into the details of Intermittent Fasting, there are a couple of user settings within the app you must know about to capitalize on the use of iFastr. First, read the below section about the <a href='#methods'>method options</a> and decided on your first selection. Then you will want to go into your <a href='https://i-fastr.vercel.app/tools'>toolkit</a>, and navigate to the <a href='https://i-fastr.vercel.app/tools/methods'>methods page</a>. You can make your selection and press the save button so it will store your selection. This will allow the timer to know how long to set itself for.
+            </p>
+            <p>
+                Next, go back into the <a href='https://i-fastr.vercel.app/tools'>toolkit</a>, and navigate to your <a href='https://i-fastr.vercel.app/tools/profile'>profile page</a>. You may enter the desired fasting start time here and save the changes. Now you are setup to take advantage of the features iFastr has to offer. This automates the timer to start at that specific time each day without a need to remember to do so yourself.  Intelligent Fasting!
+            </p>
             <h4 id='intro'>Introduction</h4>
             <p >
                 Welcome to iFastr! Our goal is to introduce you to Intermittent Fasting. iFastr is a tool for beginners and experienced fasters alike. First lets address your questions.<br/> 
@@ -53,12 +61,6 @@ export default class Info extends React.Component {
             </p>
             <p>
                 With a daily fasting regimen, you will only begin to experience the first two stages. The latter three require a prolonged fast of up to 72 hours, to reach all benefits. Since a few of these terms are not self-explanatory, we will go over them in more detail below.
-            </p>
-            <p>
-                Before getting much further into the details of Intermittent Fasting, there are a couple of user settings within the app you must know about to capitalize on the use of iFastr. First, read the below section about the <a href='#methods'>method options</a> and decided on your first selection. Then you will want to go into your <a href='https://i-fastr.vercel.app/tools'>toolkit</a>, and navigate to the <a href='https://i-fastr.vercel.app/tools/methods'>methods page</a>. You can make your selection and press the save button so it will store your selection. This will allow the timer to know how long to set itself for.
-            </p>
-            <p>
-                Next, go back into the <a href='https://i-fastr.vercel.app/tools'>toolkit</a>, and navigate to your <a href='https://i-fastr.vercel.app/tools/profile'>profile page</a>. You may enter the desired fasting start time here and save the changes. Now you are setup to take advantage of the features iFastr has to offer. This automates the timer to start at that specific time each day without a need to remember to do so yourself.  Intelligent Fasting!
             </p>
             <h4 id='safe'>Safety</h4>
             <p>
