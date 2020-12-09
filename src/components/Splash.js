@@ -9,6 +9,7 @@ export default class Splash extends React.Component {
         return (
         <div className='body'>
             <div id='splash'>
+                <p>intelligent fasting assistant.<br /> set, track, review.</p>
                     <div id='main'>
                         <div id='splashWrapper'>
                             <SplashNav /> 
