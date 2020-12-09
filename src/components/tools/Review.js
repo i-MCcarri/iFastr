@@ -41,8 +41,8 @@ export default class Review extends React.Component {
             })
             .then(response => response.json())
             .then(data => {
-                const fasting_review = Object.keys(data)
-                        .map(key => data[key].item);
+                // const fasting_review = Object.keys(data)
+                //         .map(key => data[key].item);
 
                 this.setState({ 
                 //fasting_tracker table

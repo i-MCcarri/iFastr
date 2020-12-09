@@ -50,7 +50,6 @@ export default class Profile extends React.Component {
             })
             .then(response => response.json())
             .then(data => { 
-                //console.log(data)
                 this.setState({
                     //users table 
                     user: data,
@@ -77,9 +76,6 @@ export default class Profile extends React.Component {
                 fasting_start: event.target.start.value,
             })
             //set fasting_start to context
-            console.log(event.target.start.value)
-            console.log('saving fasting start time...')
-        
             const url = `${config.API_ENDPOINT}/users/fasting_start/1`;
             const options = {
                 method: 'PATCH',

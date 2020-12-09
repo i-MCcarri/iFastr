@@ -1,20 +1,35 @@
-# iFastr Client
+# iFastr 
+intelligent fasting assistant. set, track, review.
+
+## iFastr Client Summary
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Intermittent Fasting tracker designed with both beginners and experienced users in mind. Through experimentation a user can time, track, update and review their fasting analytics. 
+The Intermittent Fasting tracker designed with both beginners and experienced users in mind. Through experimentation a user can time, track, update methods and review their fasting analytics. The user inteface can effortlessly initiate your personalized daily feast countdown after selecting 2 user settings. Finally a user can continue  to intelligently schedule the automation of each Intermittent Fast with a few clicks within any web browser or on their mobile device. 
 
-```iFastr Client``` is the frontend for ```iFastr```. to see iFastr in action, checkout <a href=''>iFastr</a>.
+```iFastr Client``` is the frontend for ```iFastr```. to see iFastr in action, checkout <a href='https://i-fastr.vercel.app/'>iFastr</a>.
 
-The ```iFastr``` backend can be found at: <a href=''>iFastr-api</a>.
+The ```iFastr``` backend can be found at: <a href='https://stark-sierra-08099.herokuapp.com'>iFastr-api</a>.
 
-```iFastr``` supports creating a user profile. Authentication is comming soon.
+```iFastr``` will supports creating a user profile and Authentication with upcoming updates.
+
+## Demo Account Details
+
+No credentials for current version. 
+
+## Setup 
+
+Before getting much further into the details of Intermittent Fasting, there are a couple of user settings within the app you must know about to capitalize on the use of ```iFastr```. First, read the section about the <a href='https://i-fastr.vercel.app/home#methods'>method options</a> on the home page, and decided on your first selection. Then you will want to go into your <a href='https://i-fastr.vercel.app/tools'>toolkit</a>, and navigate to the <a href='https://i-fastr.vercel.app/tools/methods'>methods page</a>. You can make your selection and press the save button so it will store your selection. This will allow the timer to know how long to set itself for.
+
+Next, go back into the <a href='https://i-fastr.vercel.app/tools'>toolkit</a>, and navigate to your <a href='https://i-fastr.vercel.app/tools/profile'>profile page</a>. You may enter the desired fasting start time here and save the changes. Now you are setup to take advantage of the features iFastr has to offer. This automates the timer to start at that specific time each day without a need to remember to do so yourself.  Intelligent Fasting!
 
 ## Let's Boost Our Metabilism
 
 ```iFastr``` is for the health enthusiast. We aim to provide a clean user experience while providing the necessary support to succeed in weigh management. ```iFastr```'s guided user experience allows the user to learn about the fundamentals of intermittent fasting, select a fasting option, and set a daily start time. 
 
-The ```iFastr Client``` will continue to to grow. Plans to integrate diet and workout tracking are on the horizon. Push notifications, dual-authentication and personalized data reports are all in the pipeline. 
+## Features in Developement
+
+The ```iFastr Client``` will continue to to grow. New User registration and login authentication are just around the corner. Plans to integrate diet and workout tracking are on the horizon. Push notifications, dual-authentication and personalized data reports are all in the pipeline. 
 
 ## Tech Behind the App
 
@@ -46,15 +61,15 @@ The ```iFastr Client``` will continue to to grow. Plans to integrate diet and wo
 
 clone this repository to your local machine
 
-```git clone https://github.com/i-MCcarri/iFastr```
+```git clone https://github.com/i-MCcarri/ifastr```
 
 Change directory into the cloned repository
 
-``` cd iFastr ```
+``` cd ifastr ```
 
 Make a fresh start of the git history for this project
 
-```re -rf .git && git init```
+```git remote remove origin && git init```
 
 Install the node dependencies
 

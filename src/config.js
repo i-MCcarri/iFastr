@@ -1,5 +1,3 @@
 module.exports = {
-    API_ENDPOINT: 'http://localhost:8001',
+    API_ENDPOINT: process.env.REACT_APP_API_ENDPOINT,
   };
-
-  //https://stark-sierra-08099.herokuapp.com

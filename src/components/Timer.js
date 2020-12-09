@@ -4,7 +4,7 @@ import Nav from './Nav';
 import Timer from "react-compound-timer";
 //Coming Soon: import TimerBtns from './TimerBtns';
 import { TimerContext } from "./Context";
-import moment, { now } from "moment";
+import moment from "moment";
 import config from '../config';
 import "./timer.css";
 
@@ -47,7 +47,6 @@ class TimerClass extends React.Component {
   
   componentDidMount() {
     this.getFastingLength();
-    //console.log(this.context.hours);
     //this.getFastingLength();
     this.setState({
       time: this.context.hours * 60 * 60
@@ -66,13 +65,16 @@ class TimerClass extends React.Component {
   }
 
   componentWillUnmount() {
-    //console.log(this.context.hours);
     clearInterval(this.interval);
   }
 
   onTimerEnds = () => {
     // do something when timer is up!
-    console.log("FEAST!!");
+    //Bootstrap Alert npm
+  //   <Alert key={idx} variant={info}>
+  //   Successfully tracked your fast.{' '}
+  //   <Alert.Link href="https://i-fastr.vercel.app/tools/review">Review tracking data</Alert.Link> for your recent fast.
+  // </Alert>
     //let completed = (feast_start - fasting_start >= fasting_length) ? true : false;
     const data = {
       fasting_start: this.state.join.fasting_start,
@@ -120,7 +122,6 @@ class TimerClass extends React.Component {
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 this.setState({ 
                 //fasting_tracker table
                     join: data,
@@ -143,7 +144,6 @@ class TimerClass extends React.Component {
     let milliseconds;
     let temp;
     let remaining_time;
-    console.log(todays_fast_start)
 
     // if the fast has gone into the next day:
     // compare current time to the feast start (end of fast)
@@ -174,7 +174,6 @@ class TimerClass extends React.Component {
   
   render() {
     let hrs=this.state.digital_hours;
-    //console.log(hrs);
     if(!hrs) hrs = 0;
     let millis=moment
     .duration(hrs, "hours") //this.context.hours here is the timer starting point

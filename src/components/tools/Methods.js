@@ -33,7 +33,6 @@ export default class Methods extends React.Component {
                 "Content-Type": "application/json"
             }
         };
-
         // Simple GET request using fetch
         fetch(url, options)
             .then( response => {
@@ -44,8 +43,8 @@ export default class Methods extends React.Component {
             })
             .then(response => response.json())
             .then(data => {
-                const fasting_methods = Object.keys(data)
-                        .map(key => data[key].item);
+                // const fasting_methods = Object.keys(data)
+                //         .map(key => data[key].item);
                 
                 this.setState({
                     //fasting_methods
@@ -62,12 +61,10 @@ export default class Methods extends React.Component {
     
     test = (e) => {
         this.setState({currentlySelectedID: e.target.id})
-        console.log(e.target.id);
     }
 
     saveMethod = (e) => {
         e.preventDefault();
-        console.log('patching method id...')
         
         const url = `${config.API_ENDPOINT}/users/method/1`;
         const options = {
@@ -87,10 +84,8 @@ export default class Methods extends React.Component {
     }
 
     render() {
-
-        //console.log(this.state.currentlySelectedID)
         const fasting_list = this.state.fasting_methods.map(method => 
-            <li key={method}>
+            <li key={method.method_id}>
                 <div className='itemBorder'>
                     <div className="methods__item">
                         <label 
@@ -109,7 +104,6 @@ export default class Methods extends React.Component {
                     </div>
                 </div>
             </li>)
-        console.log(this.state.fasting_methods);
         const error = this.state.error
           ? <div className="error">{this.state.error}</div>
           : "";

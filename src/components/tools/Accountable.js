@@ -42,8 +42,8 @@ export default class Accountable extends React.Component {
             })
             .then(response => response.json())
             .then(data => {
-                const fasting_tracker = Object.keys(data)
-                        .map(key => data[key].item);
+                // const fasting_tracker = Object.keys(data)
+                //         .map(key => data[key].item);
                 
                 this.setState({ 
                     //fasting_tracker table
